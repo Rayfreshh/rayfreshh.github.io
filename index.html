@@ -200,222 +200,192 @@
             </div>
         </div>
 
-        <!-- Tools Section -->
-        <div class="tools-section">
+        <!-- Tools & Languages Combined Column -->
+        <div class="tools-languages-column">
             <div class="column-dots">
                 <div class="column-dot"></div>
                 <div class="column-dot"></div>
                 <div class="column-dot"></div>
             </div>
-            <div class="section-header">
-                <div class="dots">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
+            <!-- Tools Section -->
+            <div class="tools-section">
+                <div class="section-header">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <h2 class="section-title">Tools</h2>
                 </div>
-                <h2 class="section-title">Tools/Languages</h2>
-            </div>
+                
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">Python</span>
+                    </div>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="showSkillValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="skill-bar" onclick="showCurrentSkillValue(this)">
+                            <div class="skill-progress" style="width: 95%" data-value="95">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">95%</div>
+                        </div>
+                        <span class="skill-control" onclick="showSkillValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
+                </div>
 
-            <!-- Programming Tools -->
-            <div class="tool-item">
-                <span class="tool-name">Python</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 95%;" data-value="95"></div>
-                    <div class="skill-knob"></div>
-                    <div class="skill-tooltip">95%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">TensorFlow</span>
+                    </div>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="showSkillValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="skill-bar" onclick="showCurrentSkillValue(this)">
+                            <div class="skill-progress" style="width: 90%" data-value="90">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">90%</div>
+                        </div>
+                        <span class="skill-control" onclick="showSkillValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
-                <div class="skill-controls">
-                    <span class="skill-control minus" onclick="showSkillValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="skill-control plus" onclick="showSkillValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
 
-            <div class="tool-item">
-                <span class="tool-name">TensorFlow</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 90%;" data-value="90"></div>
-                    <div class="skill-knob"></div>
-                    <div class="skill-tooltip">90%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">PyTorch</span>
+                    </div>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="showSkillValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="skill-bar" onclick="showCurrentSkillValue(this)">
+                            <div class="skill-progress" style="width: 85%" data-value="85">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">85%</div>
+                        </div>
+                        <span class="skill-control" onclick="showSkillValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
-                <div class="skill-controls">
-                    <span class="skill-control minus" onclick="showSkillValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="skill-control plus" onclick="showSkillValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
 
-            <div class="tool-item">
-                <span class="tool-name">PyTorch</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 85%;" data-value="85"></div>
-                    <div class="skill-knob"></div>
-                    <div class="skill-tooltip">85%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">OpenCV</span>
+                    </div>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="showSkillValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="skill-bar" onclick="showCurrentSkillValue(this)">
+                            <div class="skill-progress" style="width: 88%" data-value="88">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">88%</div>
+                        </div>
+                        <span class="skill-control" onclick="showSkillValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
-                <div class="skill-controls">
-                    <span class="skill-control minus" onclick="showSkillValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="skill-control plus" onclick="showSkillValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
 
-            <div class="tool-item">
-                <span class="tool-name">OpenCV</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 88%;" data-value="88"></div>
-                    <div class="skill-knob"></div>
-                    <div class="skill-tooltip">88%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">Docker</span>
+                    </div>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="showSkillValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="skill-bar" onclick="showCurrentSkillValue(this)">
+                            <div class="skill-progress" style="width: 80%" data-value="80">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">80%</div>
+                        </div>
+                        <span class="skill-control" onclick="showSkillValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
-                <div class="skill-controls">
-                    <span class="skill-control minus" onclick="showSkillValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="skill-control plus" onclick="showSkillValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
 
-            <div class="tool-item">
-                <span class="tool-name">Docker</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 80%;" data-value="80"></div>
-                    <div class="skill-knob"></div>
-                    <div class="skill-tooltip">80%</div>
-                </div>
-                <div class="skill-controls">
-                    <span class="skill-control minus" onclick="showSkillValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="skill-control plus" onclick="showSkillValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
-
-            <div class="tool-item">
-                <span class="tool-name">AWS</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 75%;" data-value="75"></div>
-                    <div class="skill-knob"></div>
-                    <div class="skill-tooltip">75%</div>
-                </div>
-                <div class="skill-controls">
-                    <span class="skill-control minus" onclick="showSkillValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="skill-control plus" onclick="showSkillValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Languages Section -->
-        <div class="languages-section">
-            <div class="column-dots">
-                <div class="column-dot"></div>
-                <div class="column-dot"></div>
-                <div class="column-dot"></div>
-            </div>
-            <div class="section-header">
-                <div class="dots">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-                <h2 class="section-title">Languages</h2>
-            </div>
-
-            <div class="language-item">
-                <span class="language-name">English</span>
-                <div class="language-bar">
-                    <div class="language-progress" style="width: 95%;" data-value="95"></div>
-                    <div class="language-knob"></div>
-                    <div class="language-tooltip">95%</div>
-                </div>
-                <div class="language-controls">
-                    <span class="language-control minus" onclick="showLanguageValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="language-control plus" onclick="showLanguageValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">AWS</span>
+                    </div>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="showSkillValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="skill-bar" onclick="showCurrentSkillValue(this)">
+                            <div class="skill-progress" style="width: 75%" data-value="75">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">75%</div>
+                        </div>
+                        <span class="skill-control" onclick="showSkillValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
             </div>
 
-            <div class="language-item">
-                <span class="language-name">Dutch</span>
-                <div class="language-bar">
-                    <div class="language-progress" style="width: 70%;" data-value="70"></div>
-                    <div class="language-knob"></div>
-                    <div class="language-tooltip">70%</div>
+            <!-- Languages Section -->
+            <div class="languages-section">
+                <div class="section-header">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <h2 class="section-title">Languages</h2>
                 </div>
-                <div class="language-controls">
-                    <span class="language-control minus" onclick="showLanguageValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="language-control plus" onclick="showLanguageValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
-                </div>
-            </div>
 
-            <div class="language-item">
-                <span class="language-name">Ukrainian</span>
-                <div class="language-bar">
-                    <div class="language-progress" style="width: 100%;" data-value="100"></div>
-                    <div class="language-knob"></div>
-                    <div class="language-tooltip">100%</div>
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">English</span>
+                    </div>
+                    <div class="language-controls">
+                        <span class="language-control" onclick="showLanguageValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="language-bar" onclick="showCurrentLanguageValue(this)">
+                            <div class="language-progress" style="width: 95%" data-value="95">
+                                <div class="language-knob"></div>
+                            </div>
+                            <div class="language-tooltip">95%</div>
+                        </div>
+                        <span class="language-control" onclick="showLanguageValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
-                <div class="language-controls">
-                    <span class="language-control minus" onclick="showLanguageValue(this, 0)" title="Show minimum">
-                        <span class="control-tooltip">0%</span>
-                        -
-                    </span>
-                    <span class="language-control plus" onclick="showLanguageValue(this, 100)" title="Show maximum">
-                        <span class="control-tooltip">100%</span>
-                        +
-                    </span>
+
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">Dutch</span>
+                    </div>
+                    <div class="language-controls">
+                        <span class="language-control" onclick="showLanguageValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="language-bar" onclick="showCurrentLanguageValue(this)">
+                            <div class="language-progress" style="width: 70%" data-value="70">
+                                <div class="language-knob"></div>
+                            </div>
+                            <div class="language-tooltip">70%</div>
+                        </div>
+                        <span class="language-control" onclick="showLanguageValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">Ukrainian</span>
+                    </div>
+                    <div class="language-controls">
+                        <span class="language-control" onclick="showLanguageValue(this, 0)">-<div class="control-tooltip">0%</div></span>
+                        <div class="language-bar" onclick="showCurrentLanguageValue(this)">
+                            <div class="language-progress" style="width: 100%" data-value="100">
+                                <div class="language-knob"></div>
+                            </div>
+                            <div class="language-tooltip">100%</div>
+                        </div>
+                        <span class="language-control" onclick="showLanguageValue(this, 100)">+<div class="control-tooltip">100%</div></span>
+                    </div>
                 </div>
             </div>
         </div>
