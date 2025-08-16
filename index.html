@@ -529,6 +529,96 @@
             visibility: visible;
         }
 
+        /* Document Preview Overlay */
+        .document-preview-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .document-preview-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .document-preview-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .document-preview-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .document-preview-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .document-preview-close:hover {
+            color: #333;
+        }
+
+        .document-preview-content {
+            flex: 1;
+            overflow: auto;
+            padding: 0;
+        }
+
+        .document-preview-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .document-preview-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .document-preview-backdrop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .degree-title {
             font-size: 22px;
             font-weight: 600;
@@ -791,21 +881,21 @@
         }
 
         .control-tooltip {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: fixed;
+            top: auto;
+            left: auto;
             background: #333;
             color: white;
-            padding: 4px 6px;
-            border-radius: 3px;
-            font-size: 10px;
+            padding: 6px 8px;
+            border-radius: 4px;
+            font-size: 11px;
             font-weight: bold;
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
             white-space: nowrap;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .control-tooltip:after {
@@ -1133,6 +1223,20 @@
             .education-info-overlay p {
                 font-size: 14px;
                 line-height: 1.5;
+            }
+            
+            .document-preview-overlay {
+                width: 95%;
+                height: 85vh;
+                max-width: none;
+            }
+            
+            .document-preview-header {
+                padding: 12px 15px;
+            }
+            
+            .document-preview-title {
+                font-size: 14px;
             }
             
             .tools-languages-column {
@@ -1820,6 +1924,18 @@
         <p id="educationContent"></p>
     </div>
 
+    <!-- Document Preview Overlay -->
+    <div class="document-preview-backdrop" id="documentPreviewBackdrop"></div>
+    <div class="document-preview-overlay" id="documentPreviewOverlay">
+        <div class="document-preview-header">
+            <div class="document-preview-title" id="documentPreviewTitle">Document Preview</div>
+            <button class="document-preview-close" id="documentPreviewClose">&times;</button>
+        </div>
+        <div class="document-preview-content">
+            <iframe class="document-preview-frame" id="documentPreviewFrame" src=""></iframe>
+        </div>
+    </div>
+
     <script>
         function toggleMenu() {
             const dropdown = document.getElementById('menuDropdown');
@@ -1894,6 +2010,12 @@
         function showSkillValue(element, value) {
             const tooltip = element.querySelector('.control-tooltip');
             
+            // Position tooltip above the button
+            const rect = element.getBoundingClientRect();
+            tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+            tooltip.style.top = (rect.top - 35) + 'px';
+            tooltip.style.transform = 'translateX(-50%)';
+            
             // Show the tooltip on the button
             tooltip.style.opacity = '1';
             
@@ -1925,6 +2047,12 @@
 
         function showLanguageValue(element, value) {
             const tooltip = element.querySelector('.control-tooltip');
+            
+            // Position tooltip above the button
+            const rect = element.getBoundingClientRect();
+            tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+            tooltip.style.top = (rect.top - 35) + 'px';
+            tooltip.style.transform = 'translateX(-50%)';
             
             // Show the tooltip on the button
             tooltip.style.opacity = '1';
@@ -1976,32 +2104,35 @@
             const educationTitle = document.getElementById('educationTitle');
             const educationContent = document.getElementById('educationContent');
             
+            // Document preview elements
+            const documentPreviewOverlay = document.getElementById('documentPreviewOverlay');
+            const documentPreviewBackdrop = document.getElementById('documentPreviewBackdrop');
+            const documentPreviewClose = document.getElementById('documentPreviewClose');
+            const documentPreviewTitle = document.getElementById('documentPreviewTitle');
+            const documentPreviewFrame = document.getElementById('documentPreviewFrame');
+            
             function isMobile() {
                 return window.innerWidth <= 768;
             }
             
-            function showEducationInfo(title, content, fileUrl = null) {
+            function showDocumentPreview(title, fileUrl) {
+                documentPreviewTitle.textContent = title;
+                documentPreviewFrame.src = fileUrl;
+                documentPreviewOverlay.classList.add('show');
+                documentPreviewBackdrop.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function hideDocumentPreview() {
+                documentPreviewOverlay.classList.remove('show');
+                documentPreviewBackdrop.classList.remove('show');
+                document.body.style.overflow = '';
+                documentPreviewFrame.src = '';
+            }
+            
+            function showEducationInfo(title, content) {
                 educationTitle.textContent = title;
                 educationContent.textContent = content;
-                
-                // Add file link if available
-                if (fileUrl) {
-                    const fileLink = document.createElement('a');
-                    fileLink.href = fileUrl;
-                    fileLink.target = '_blank';
-                    fileLink.textContent = 'View Document';
-                    fileLink.style.display = 'inline-block';
-                    fileLink.style.marginTop = '15px';
-                    fileLink.style.padding = '8px 16px';
-                    fileLink.style.backgroundColor = '#f4d03f';
-                    fileLink.style.color = '#1a1a1a';
-                    fileLink.style.textDecoration = 'none';
-                    fileLink.style.borderRadius = '4px';
-                    fileLink.style.fontWeight = '600';
-                    
-                    educationContent.appendChild(fileLink);
-                }
-                
                 educationOverlay.classList.add('show');
                 educationBackdrop.classList.add('show');
                 document.body.style.overflow = 'hidden';
@@ -2011,59 +2142,95 @@
                 educationOverlay.classList.remove('show');
                 educationBackdrop.classList.remove('show');
                 document.body.style.overflow = '';
-                
-                // Clear any added file links
-                const fileLinks = educationContent.querySelectorAll('a');
-                fileLinks.forEach(link => link.remove());
             }
             
             educationRows.forEach(row => {
-                if (isMobile()) {
-                    // On mobile: click to show overlay
-                    row.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const title = this.querySelector('.row-label').textContent;
-                        const content = this.getAttribute('data-info');
-                        const fileUrl = this.getAttribute('data-file');
-                        showEducationInfo(title, content, fileUrl);
-                    });
+                const fileUrl = row.getAttribute('data-file');
+                const title = row.querySelector('.row-label').textContent;
+                const content = row.getAttribute('data-info');
+                
+                if (fileUrl) {
+                    // For rows with documents
+                    if (isMobile()) {
+                        // Mobile: click to open document in new tab
+                        row.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            window.open(fileUrl, '_blank');
+                        });
+                    } else {
+                        // Desktop: hover to show document preview
+                        let hoverTimeout;
+                        
+                        row.addEventListener('mouseenter', function() {
+                            clearTimeout(hoverTimeout);
+                            hoverTimeout = setTimeout(() => {
+                                showDocumentPreview(title, fileUrl);
+                            }, 500); // Longer delay to prevent disruption
+                        });
+                        
+                        row.addEventListener('mouseleave', function() {
+                            clearTimeout(hoverTimeout);
+                        });
+                        
+                        // Click to open in new tab
+                        row.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            window.open(fileUrl, '_blank');
+                        });
+                    }
                 } else {
-                    // On desktop: hover to show overlay
-                    let hoverTimeout;
-                    
-                    row.addEventListener('mouseenter', function() {
-                        const title = this.querySelector('.row-label').textContent;
-                        const content = this.getAttribute('data-info');
-                        const fileUrl = this.getAttribute('data-file');
-                        hoverTimeout = setTimeout(() => {
-                            showEducationInfo(title, content, fileUrl);
-                        }, 300);
-                    });
-                    
-                    row.addEventListener('mouseleave', function() {
-                        clearTimeout(hoverTimeout);
-                        setTimeout(hideEducationInfo, 200);
-                    });
-                    
-                    // Keep overlay open when hovering over it
-                    educationOverlay.addEventListener('mouseenter', function() {
-                        clearTimeout(hoverTimeout);
-                    });
-                    
-                    educationOverlay.addEventListener('mouseleave', function() {
-                        hideEducationInfo();
-                    });
+                    // For rows without documents (like Grades)
+                    if (isMobile()) {
+                        row.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            showEducationInfo(title, content);
+                        });
+                    } else {
+                        let hoverTimeout;
+                        
+                        row.addEventListener('mouseenter', function() {
+                            clearTimeout(hoverTimeout);
+                            hoverTimeout = setTimeout(() => {
+                                showEducationInfo(title, content);
+                            }, 500);
+                        });
+                        
+                        row.addEventListener('mouseleave', function() {
+                            clearTimeout(hoverTimeout);
+                        });
+                    }
                 }
+            });
+            
+            // Keep document preview open when hovering over it
+            documentPreviewOverlay.addEventListener('mouseenter', function() {
+                // Keep open
+            });
+            
+            documentPreviewOverlay.addEventListener('mouseleave', function() {
+                hideDocumentPreview();
+            });
+            
+            // Keep education info open when hovering over it
+            educationOverlay.addEventListener('mouseenter', function() {
+                // Keep open
+            });
+            
+            educationOverlay.addEventListener('mouseleave', function() {
+                hideEducationInfo();
             });
             
             // Close overlay events
             educationClose.addEventListener('click', hideEducationInfo);
             educationBackdrop.addEventListener('click', hideEducationInfo);
+            documentPreviewClose.addEventListener('click', hideDocumentPreview);
+            documentPreviewBackdrop.addEventListener('click', hideDocumentPreview);
             
             // Close on Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     hideEducationInfo();
+                    hideDocumentPreview();
                 }
             });
         });
