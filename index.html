@@ -3,65 +3,220 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Etiosa Raymond</title>
+  <title>Etiosa Raymond - AI Engineer</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <img src="assets/IMG_0930.jpeg" alt="Profile" class="avatar">
-    <h1>Etiosa Raymond</h1>
-    <p>Ethical and social AI. Fairness aware methods. Human AI interaction.</p>
-    <div class="icons">
-      <a href="mailto:samsonraymond63@yahoo.com">Email</a>
-      <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/">LinkedIn</a>
-      <a href="https://github.com/etiosaraymond">GitHub</a>
-      <a href="#">CV</a>
-    </div>
-  </aside>
-
-  <main class="grid">
-    <section class="panel edu">
-      <h2>Education</h2>
-      <div class="item">
-        <h3>Master Smart Systems</h3>
-        <p>Hanze University of Applied Sciences</p>
-        <p>Graduated</p>
+  <div class="container">
+    <header class="hero">
+      <div class="hero-content">
+        <div class="profile-section">
+          <div class="profile-image-wrapper">
+            <img src="assets/IMG_0930.jpeg" alt="Etiosa Raymond" class="profile-image">
+            <div class="status-indicator"></div>
+          </div>
+          <div class="intro">
+            <h1 class="name">Etiosa Raymond</h1>
+            <p class="title">AI Engineer & Researcher</p>
+            <p class="bio">Specializing in ethical AI, fairness-aware methods, and human-AI interaction. Passionate about building responsible AI systems that benefit society.</p>
+            <div class="social-links">
+              <a href="mailto:samsonraymond63@yahoo.com" class="social-link" title="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/etiosaraymond" class="social-link" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="social-link" title="Download CV">
+                <i class="fas fa-file-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="item">
-        <h3>Bachelor Oil and Gas Engineering</h3>
-        <p>Manufacturing technology focus</p>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
       </div>
-    </section>
+    </header>
 
-    <section class="panel exp">
-      <h2>Experience</h2>
-      <div class="item">
-        <h3>AI Engineer</h3>
-        <p>Cymo B.V.</p>
-        <p>Healthcare AI research and deployment</p>
-      </div>
-      <div class="item">
-        <h3>Research Project</h3>
-        <p>Tata Steel</p>
-        <p>Predictive system for coil print checks</p>
-      </div>
-    </section>
+    <main class="main-content">
+      <section class="section experience">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-briefcase"></i>
+            Experience
+          </h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>AI Engineer</h3>
+              <h4>Cymo B.V.</h4>
+              <p>Healthcare AI research and deployment. Developing machine learning models for medical applications and ensuring ethical AI practices in healthcare settings.</p>
+              <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Healthcare AI</span>
+                <span class="tag">Ethics</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Research Project</h3>
+              <h4>Tata Steel</h4>
+              <p>Developed predictive systems for coil print quality checks using computer vision and deep learning techniques.</p>
+              <div class="tags">
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">Quality Control</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section class="panel tools">
-      <h2>Tools</h2>
-      <ul class="bars">
-        <li><span>Python</span><i style="width:85%"></i></li>
-        <li><span>PyTorch</span><i style="width:80%"></i></li>
-        <li><span>Computer Vision</span><i style="width:90%"></i></li>
-        <li><span>LLMs</span><i style="width:70%"></i></li>
-      </ul>
+      <section class="section education">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-graduation-cap"></i>
+            Education
+          </h2>
+        </div>
+        <div class="education-grid">
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="education-content">
+              <h3>Master in Smart Systems</h3>
+              <h4>Hanze University of Applied Sciences</h4>
+              <p class="status">Graduated</p>
+            </div>
+          </div>
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="education-content">
+              <h3>Bachelor in Oil and Gas Engineering</h3>
+              <h4>Manufacturing Technology Focus</h4>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <h2>Languages</h2>
-      <ul class="bars">
-        <li><span>English</span><i style="width:90%"></i></li>
-        <li><span>Dutch</span><i style="width:40%"></i></li>
-      </ul>
-    </section>
-  </main>
+      <section class="section skills">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-code"></i>
+            Skills & Technologies
+          </h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming & Tools</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">PyTorch</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Computer Vision</span>
+                  <span class="skill-level">Expert</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">LLMs</span>
+                  <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Languages</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">English</span>
+                  <span class="skill-level">Fluent</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Dutch</span>
+                  <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="60"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Animate skill bars on scroll
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressBars = entry.target.querySelectorAll('.skill-progress');
+          progressBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            bar.style.width = width + '%';
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.skills').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Smooth scrolling for scroll indicator
+    document.querySelector('.scroll-indicator').addEventListener('click', () => {
+      document.querySelector('.main-content').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>
