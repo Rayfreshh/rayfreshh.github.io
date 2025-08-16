@@ -74,8 +74,8 @@
 
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr auto auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr auto auto;
             max-width: 1400px;
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -112,6 +112,9 @@
             flex-direction: column;
             position: relative;
             animation: slideInLeft 0.8s ease-out;
+            grid-row: 1 / 3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .profile-header {
@@ -140,6 +143,14 @@
             color: white;
             transform: rotate(35deg);
             opacity: 0.8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .arrow:hover {
+            opacity: 1;
+            transform: rotate(35deg) scale(1.1);
+            color: #f4d03f;
         }
 
         .profile-image {
@@ -197,6 +208,8 @@
             padding: 20px;
             overflow-y: auto;
             animation: slideInUp 0.8s ease-out 0.2s both;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .section-header {
@@ -269,6 +282,8 @@
             padding: 20px;
             overflow-y: auto;
             animation: slideInUp 0.8s ease-out 0.4s both;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .experience-section .section-title {
@@ -322,6 +337,8 @@
             padding: 20px 15px;
             overflow-y: auto;
             animation: slideInRight 0.8s ease-out 0.6s both;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .tools-section .section-title {
@@ -374,6 +391,8 @@
             color: white;
             overflow-y: auto;
             animation: slideInRight 0.8s ease-out 0.8s both;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .languages-section .section-title {
@@ -465,20 +484,16 @@
             .container {
                 grid-template-columns: 250px 1fr 250px;
             }
-            
-            .tools-section {
-                display: none;
-            }
         }
 
         @media (max-width: 900px) {
             .container {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto auto auto;
+                grid-template-rows: auto auto auto auto auto auto;
             }
             
-            .tools-section {
-                display: block;
+            .profile-section {
+                grid-row: auto;
             }
         }
     </style>
@@ -492,7 +507,7 @@
         <div class="profile-section">
             <div class="profile-header">
                 <h1 class="name" onclick="window.location.href='bio.html'">Samson<br>Raymond</h1>
-                <div class="arrow">↗</div>
+                <div class="arrow" onclick="window.location.href='bio.html'" title="View Bio">↗</div>
             </div>
             
             <div class="profile-image"></div>
@@ -504,10 +519,10 @@
             </div>
             
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link" title="LinkedIn">💼</a>
-                <a href="https://github.com/Rayfreshh" class="social-link" title="GitHub">💻</a>
-                <a href="mailto:samsonraymond63@yahoo.com" class="social-link" title="Email">📧</a>
-                <a href="assets/Etiosa_Raymond_CV.pdf" class="social-link" download title="Download CV">📄</a>
+                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link" title="LinkedIn">in</a>
+                <a href="https://github.com/Rayfreshh" class="social-link" title="GitHub" style="font-family: monospace; font-weight: bold;">gh</a>
+                <a href="mailto:samsonraymond63@yahoo.com" class="social-link" title="Email">@</a>
+                <a href="assets/Etiosa_Raymond_CV.pdf" class="social-link" download title="Download CV">cv</a>
             </div>
         </div>
 
