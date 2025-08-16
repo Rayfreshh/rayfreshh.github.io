@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samson Raymond - Bio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 1fr auto;
+            min-height: 100vh;
+            gap: 0;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .profile-header {
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .name:hover {
+            color: #f4d03f;
+        }
+
+        .arrow {
+            font-size: 60px;
+            color: white;
+            transform: rotate(45deg);
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 200px;
+            background: url('assets/IMG_0930.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .description {
+            background-color: #f4d03f;
+            color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .description h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background-color: #555;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background-color: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bio-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .bio-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .bio-content p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            background-color: #f4d03f;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .achievement {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .achievement-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .achievement-text {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .navigation {
+            grid-column: 1 / -1;
+            background-color: #1a1a1a;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item:hover {
+            color: #f4d03f;
+        }
+
+        .home-icon {
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+            }
+            
+            .bio-section {
+                padding: 40px 30px;
+            }
+            
+            .achievements {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-header">
+                <h1 class="name" onclick="window.location.href='index.html'">Samson<br>Raymond</h1>
+                <div class="arrow">↗</div>
+            </div>
+            
+            <div class="profile-image"></div>
+            
+            <div class="description">
+                <h3>Specialized in AI/ML and Computer Vision.</h3>
+                <p>Passionate about developing precision-driven technologies and innovative research methods.</p>
+                <p>Available for collaborations and impactful projects.</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link">in</a>
+                <a href="https://github.com/Rayfreshh" class="social-link">📧</a>
+                <a href="mailto:samsonraymond63@yahoo.com" class="social-link">✕</a>
+                <a href="assets/Etiosa_Raymond_CV.pdf" class="social-link" download>📄</a>
+            </div>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="bio-section">
+            <h2 class="bio-title">
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                Biography
+            </h2>
+            
+            <div class="bio-content">
+                <p>Samson Raymond is an AI/ML Engineer specializing in <span class="highlight">computer vision</span> and <span class="highlight">deep learning</span> technologies. Currently working at Cymo B.V., he focuses on developing precision-driven AI systems for medical devices.</p>
+                
+                <p>With a strong background in engineering and data science, Samson has successfully improved system accuracy by <span class="highlight">25%</span> and reduced manual verification time by <span class="highlight">40%</span> through innovative AI implementations at Tata Steel.</p>
+                
+                <p>His expertise spans across <span class="highlight">Python</span>, <span class="highlight">TensorFlow</span>, <span class="highlight">PyTorch</span>, and cloud platforms including <span class="highlight">AWS</span> and <span class="highlight">Azure</span>. Samson is passionate about developing fairness-aware technologies and innovative research methods that create measurable impact.</p>
+                
+                <p>Currently pursuing a Master's in Smart Systems Engineering at Hanze University of Applied Sciences, he combines theoretical knowledge with practical industry experience to push the boundaries of AI technology.</p>
+            </div>
+            
+            <div class="achievements">
+                <div class="achievement">
+                    <div class="achievement-number">25%</div>
+                    <div class="achievement-text">Accuracy Improvement</div>
+                </div>
+                
+                <div class="achievement">
+                    <div class="achievement-number">40%</div>
+                    <div class="achievement-text">Time Reduction</div>
+                </div>
+                
+                <div class="achievement">
+                    <div class="achievement-number">99.5%</div>
+                    <div class="achievement-text">CV Pipeline Precision</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="index.html" class="nav-item">
+                <span class="home-icon">🏠</span>
+                Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

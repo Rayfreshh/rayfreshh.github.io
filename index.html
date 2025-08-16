@@ -3,133 +3,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samson Raymond - AI Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <!-- Left Side - Bio -->
-        <div class="left-section">
-            <div class="bio">
-                <h1>Specialized in AI/ML and Computer Vision.</h1>
-                <p>Passionate about developing precision-driven technologies and innovative research methods.</p>
-                <p>Available for collaborations and impactful projects.</p>
-            </div>
-        </div>
+    <title>Samson Raymond - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Right Side - Details -->
-        <div class="right-section">
-            <!-- Languages -->
-            <div class="section">
-                <div class="section-header" onclick="toggle('languages')">
-                    <span>Languages</span>
-                    <span class="toggle" id="languages-toggle">+</span>
-                </div>
-                <div class="section-content" id="languages">
-                    <span class="item">English</span>
-                    <span class="item">Dutch</span>
-                    <span class="item">French</span>
-                </div>
-            </div>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
 
-            <!-- Tools -->
-            <div class="section">
-                <div class="section-header" onclick="toggle('tools')">
-                    <span>Tools</span>
-                    <span class="toggle" id="tools-toggle">+</span>
-                </div>
-                <div class="section-content" id="tools">
-                    <span class="item">Python</span>
-                    <span class="item">TensorFlow</span>
-                    <span class="item">PyTorch</span>
-                    <span class="item">Docker</span>
-                </div>
-            </div>
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px 250px;
+            grid-template-rows: 1fr auto;
+            min-height: 100vh;
+            gap: 0;
+        }
 
-            <!-- Experience -->
-            <div class="section">
-                <div class="section-header" onclick="toggle('experience')">
-                    <span>Experience</span>
-                    <span class="toggle" id="experience-toggle">+</span>
-                </div>
-                <div class="section-content" id="experience">
-                    <div class="timeline-item">
-                        <div class="year">2024-ongoing</div>
-                        <div class="details">
-                            <div class="company">CYMO B.V.</div>
-                            <div class="role">AI/ML Engineer</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="year">2024</div>
-                        <div class="details">
-                            <div class="company">TATA STEEL</div>
-                            <div class="role">R&D Intern - AI/ML</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="year">2023-2024</div>
-                        <div class="details">
-                            <div class="company">SCANIA</div>
-                            <div class="role">Logistics Technician</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        /* Profile Section */
+        .profile-section {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
-            <!-- Education -->
-            <div class="section">
-                <div class="section-header" onclick="toggle('education')">
-                    <span>Education</span>
-                    <span class="toggle" id="education-toggle">+</span>
-                </div>
-                <div class="section-content" id="education">
-                    <div class="timeline-item">
-                        <div class="year">2023-2025</div>
-                        <div class="details">
-                            <div class="company">HANZE UNIVERSITY</div>
-                            <div class="role">Master in Smart Systems Engineering</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="year">2018-2022</div>
-                        <div class="details">
-                            <div class="company">UKRAINE UNIVERSITY</div>
-                            <div class="role">Bachelor in Oil & Gas Engineering</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        .profile-header {
+            margin-bottom: 30px;
+        }
 
-            <!-- Contact -->
-            <div class="contact">
-                <a href="mailto:samsonraymond63@yahoo.com">E</a>
-            </div>
-        </div>
-    </div>
+        .name {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-    <script>
-        function toggle(sectionId) {
-            const content = document.getElementById(sectionId);
-            const toggle = document.getElementById(sectionId + '-toggle');
+        .name:hover {
+            color: #f4d03f;
+        }
+
+        .arrow {
+            font-size: 60px;
+            color: white;
+            transform: rotate(45deg);
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 200px;
+            background: url('assets/IMG_0930.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .description {
+            background-color: #f4d03f;
+            color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .description h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background-color: #555;
+        }
+
+        /* Education Section */
+        .education-section {
+            background-color: white;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            margin-right: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #333;
+        }
+
+        .education-item {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .degree-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .institution {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .year {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .grade {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background-color: #e74c3c;
+            color: white;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .experience-section .section-title {
+            color: white;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .job-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .add-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border: 2px solid white;
+            border-radius: 50%;
+            background: transparent;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-btn:hover {
+            background-color: white;
+            color: #e74c3c;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background-color: white;
+            padding: 40px 30px;
+            overflow-y: auto;
+        }
+
+        .tools-section .section-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .tool-name {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            flex: 1;
+            height: 4px;
+            background-color: #eee;
+            margin: 0 15px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: #333;
+            border-radius: 2px;
+        }
+
+        .add-tool {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .add-tool:hover {
+            color: #333;
+        }
+
+        /* Languages Section */
+        .languages-section {
+            background-color: #2ecc71;
+            padding: 30px;
+            color: white;
+            overflow-y: auto;
+        }
+
+        .languages-section .section-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .language-name {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .language-bar {
+            flex: 1;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: 0 15px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .language-progress {
+            height: 100%;
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        /* Navigation */
+        .navigation {
+            grid-column: 1 / -1;
+            background-color: #1a1a1a;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item:hover {
+            color: #f4d03f;
+        }
+
+        .home-icon {
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 250px 1fr 250px;
+            }
             
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                toggle.textContent = '-';
-            } else {
-                content.style.display = 'none';
-                toggle.textContent = '+';
+            .tools-section {
+                display: none;
             }
         }
 
-        // Initialize all sections as collapsed
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = ['languages', 'tools', 'experience', 'education'];
-            sections.forEach(section => {
-                document.getElementById(section).style.display = 'none';
-            });
-        });
-    </script>
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto;
+            }
+            
+            .tools-section {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-header">
+                <h1 class="name" onclick="window.location.href='bio.html'">Samson<br>Raymond</h1>
+                <div class="arrow">↗</div>
+            </div>
+            
+            <div class="profile-image"></div>
+            
+            <div class="description">
+                <h3>Specialized in AI/ML and Computer Vision.</h3>
+                <p>Passionate about developing precision-driven technologies and innovative research methods.</p>
+                <p>Available for collaborations and impactful projects.</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link">in</a>
+                <a href="https://github.com/Rayfreshh" class="social-link">📧</a>
+                <a href="mailto:samsonraymond63@yahoo.com" class="social-link">✕</a>
+                <a href="assets/Etiosa_Raymond_CV.pdf" class="social-link" download>📄</a>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="education-section">
+            <div class="section-header">
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <h2 class="section-title">Education</h2>
+            </div>
+
+            <div class="education-item">
+                <h3 class="degree-title">Master Smart Systems Engineering</h3>
+                <p class="institution">HANZE UNIVERSITY OF APPLIED SCIENCES</p>
+                <p class="year">2023-2025</p>
+            </div>
+
+            <div class="education-item">
+                <h3 class="degree-title">Bachelor Oil & Gas Engineering</h3>
+                <p class="institution">IVANO-FRANKIVSK NATIONAL TECHNICAL UNIVERSITY</p>
+                <p class="year">2018-2022</p>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="experience-section">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+            </div>
+
+            <div class="experience-item">
+                <button class="add-btn">+</button>
+                <h3 class="job-title">AI/ML Engineer</h3>
+                <p class="company">CYMO B.V.</p>
+                <p class="year">2024-ongoing</p>
+            </div>
+
+            <div class="experience-item">
+                <button class="add-btn">+</button>
+                <h3 class="job-title">R&D Intern - AI/ML</h3>
+                <p class="company">TATA STEEL</p>
+                <p class="year">Sep 2024 - Mar 2025</p>
+            </div>
+
+            <div class="experience-item">
+                <button class="add-btn">+</button>
+                <h3 class="job-title">Logistics Technician</h3>
+                <p class="company">SCANIA</p>
+                <p class="year">2023-2024</p>
+            </div>
+        </div>
+
+        <!-- Tools Section -->
+        <div class="tools-section">
+            <h2 class="section-title">Tools</h2>
+            
+            <div class="tool-item">
+                <span class="tool-name">Python</span>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+
+            <div class="tool-item">
+                <span class="tool-name">TensorFlow</span>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+
+            <div class="tool-item">
+                <span class="tool-name">PyTorch</span>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 88%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+
+            <div class="tool-item">
+                <span class="tool-name">Docker</span>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+
+            <div class="tool-item">
+                <span class="tool-name">AWS</span>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 87%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="languages-section">
+            <h2 class="section-title">Languages</h2>
+            
+            <div class="language-item">
+                <span class="language-name">English</span>
+                <div class="language-bar">
+                    <div class="language-progress" style="width: 100%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+
+            <div class="language-item">
+                <span class="language-name">Dutch</span>
+                <div class="language-bar">
+                    <div class="language-progress" style="width: 75%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+
+            <div class="language-item">
+                <span class="language-name">French</span>
+                <div class="language-bar">
+                    <div class="language-progress" style="width: 60%"></div>
+                </div>
+                <span class="add-tool">+</span>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <a href="index.html" class="nav-item">
+                <span class="home-icon">🏠</span>
+                Home
+            </a>
+        </div>
+    </div>
 </body>
 </html>
