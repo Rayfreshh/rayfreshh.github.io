@@ -15,7 +15,13 @@
             font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: #f5f5f5;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: auto;
+        }
+        
+        @media (min-width: 769px) {
+            body {
+                overflow-y: hidden;
+            }
         }
 
         /* Loading Animations */
@@ -94,23 +100,76 @@
             background-color: rgba(0, 0, 0, 0.2);
         }
 
-        .fullscreen-btn {
+
+        /* Menu Button */
+        .menu-btn {
             position: fixed;
             top: 20px;
             right: 20px;
             background: #1a1a1a;
             color: white;
             border: none;
-            padding: 12px 16px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 20px;
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .fullscreen-btn:hover {
+        .menu-btn:hover {
             background: #333;
+        }
+
+        .menu-dropdown {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background-color: #f8f9fa;
+            color: #f4d03f;
+        }
+
+        .menu-item-icon {
+            margin-right: 10px;
+            font-size: 18px;
         }
 
         /* Column Decorations */
@@ -186,9 +245,9 @@
             width: 100%;
             height: 200px;
             background: url('assets/IMG_0930.jpeg');
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
-            background-position: center top;
+            background-position: center center;
             margin-bottom: 30px;
             border-radius: 8px;
             border: 1px solid #333;
@@ -424,6 +483,18 @@
             position: relative;
         }
 
+        .skill-knob {
+            position: absolute;
+            right: -6px;
+            top: -4px;
+            width: 12px;
+            height: 12px;
+            background-color: #333;
+            border: 2px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
         .skill-tooltip {
             position: absolute;
             top: -35px;
@@ -517,6 +588,18 @@
             position: relative;
         }
 
+        .language-knob {
+            position: absolute;
+            right: -7px;
+            top: -4px;
+            width: 14px;
+            height: 14px;
+            background-color: white;
+            border: 2px solid #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
         .language-tooltip {
             position: absolute;
             top: -35px;
@@ -606,24 +689,143 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .container {
-                grid-template-columns: 250px 1fr 250px;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto auto auto auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto;
             }
             
             .profile-section {
-                grid-row: auto;
+                grid-row: 1;
+                grid-column: 1;
+            }
+            
+            .education-section {
+                grid-row: 1;
+                grid-column: 2;
+            }
+            
+            .experience-section {
+                grid-row: 2;
+                grid-column: 1 / -1;
+            }
+            
+            .tools-languages-column {
+                grid-row: 3;
+                grid-column: 1 / -1;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                padding: 5px;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto;
+                gap: 0;
+            }
+            
+            .profile-section,
+            .education-section,
+            .experience-section,
+            .tools-languages-column {
+                grid-column: 1;
+                padding: 15px;
+            }
+            
+            .tools-languages-column {
+                display: block;
+            }
+            
+            .name {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .profile-image {
+                height: 150px;
+            }
+            
+            .menu-btn {
+                top: 10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .menu-dropdown {
+                top: 65px;
+                right: 10px;
+                min-width: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-wrapper {
+                padding: 2px;
+            }
+            
+            .profile-section,
+            .education-section,
+            .experience-section,
+            .tools-section,
+            .languages-section {
+                padding: 10px;
+            }
+            
+            .name {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .profile-image {
+                height: 120px;
+            }
+            
+            .tool-name,
+            .language-name {
+                font-size: 14px;
+            }
+            
+            .skill-bar,
+            .language-bar {
+                margin: 0 10px;
             }
         }
     </style>
 </head>
 <body>
-    <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+    <!-- Menu Button -->
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    
+    <!-- Menu Dropdown -->
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="#education" class="menu-item" onclick="scrollToSection('education')">
+            <span class="menu-item-icon">🎓</span>
+            Education
+        </a>
+        <a href="#experience" class="menu-item" onclick="scrollToSection('experience')">
+            <span class="menu-item-icon">💼</span>
+            Experience
+        </a>
+        <a href="#tools" class="menu-item" onclick="scrollToSection('tools')">
+            <span class="menu-item-icon">🛠️</span>
+            Tools & Skills
+        </a>
+        <a href="bio.html" class="menu-item">
+            <span class="menu-item-icon">👤</span>
+            Biography
+        </a>
+    </div>
     
     <div class="main-wrapper">
         <div class="container">
@@ -754,7 +956,9 @@
                 <div class="tool-item" onclick="highlightSkill(this)">
                     <span class="tool-name">Python</span>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
+                        <div class="skill-progress" style="width: 95%">
+                            <div class="skill-knob"></div>
+                        </div>
                         <div class="skill-tooltip">95%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -763,7 +967,9 @@
                 <div class="tool-item" onclick="highlightSkill(this)">
                     <span class="tool-name">TensorFlow</span>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-progress" style="width: 90%">
+                            <div class="skill-knob"></div>
+                        </div>
                         <div class="skill-tooltip">90%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -772,7 +978,9 @@
                 <div class="tool-item" onclick="highlightSkill(this)">
                     <span class="tool-name">PyTorch</span>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%"></div>
+                        <div class="skill-progress" style="width: 88%">
+                            <div class="skill-knob"></div>
+                        </div>
                         <div class="skill-tooltip">88%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -781,7 +989,9 @@
                 <div class="tool-item" onclick="highlightSkill(this)">
                     <span class="tool-name">Docker</span>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-progress" style="width: 90%">
+                            <div class="skill-knob"></div>
+                        </div>
                         <div class="skill-tooltip">90%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -790,7 +1000,9 @@
                 <div class="tool-item" onclick="highlightSkill(this)">
                     <span class="tool-name">AWS</span>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 87%"></div>
+                        <div class="skill-progress" style="width: 87%">
+                            <div class="skill-knob"></div>
+                        </div>
                         <div class="skill-tooltip">87%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -804,7 +1016,9 @@
                 <div class="language-item" onclick="highlightSkill(this)">
                     <span class="language-name">English</span>
                     <div class="language-bar">
-                        <div class="language-progress" style="width: 100%"></div>
+                        <div class="language-progress" style="width: 100%">
+                            <div class="language-knob"></div>
+                        </div>
                         <div class="language-tooltip">100%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -813,7 +1027,9 @@
                 <div class="language-item" onclick="highlightSkill(this)">
                     <span class="language-name">Dutch</span>
                     <div class="language-bar">
-                        <div class="language-progress" style="width: 75%"></div>
+                        <div class="language-progress" style="width: 75%">
+                            <div class="language-knob"></div>
+                        </div>
                         <div class="language-tooltip">75%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -822,7 +1038,9 @@
                 <div class="language-item" onclick="highlightSkill(this)">
                     <span class="language-name">French</span>
                     <div class="language-bar">
-                        <div class="language-progress" style="width: 60%"></div>
+                        <div class="language-progress" style="width: 60%">
+                            <div class="language-knob"></div>
+                        </div>
                         <div class="language-tooltip">60%</div>
                     </div>
                     <span class="add-tool">+</span>
@@ -834,13 +1052,43 @@
     </div>
 
     <script>
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                document.exitFullscreen();
+        function toggleMenu() {
+            const dropdown = document.getElementById('menuDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function scrollToSection(sectionName) {
+            const dropdown = document.getElementById('menuDropdown');
+            dropdown.classList.remove('show');
+            
+            let targetElement;
+            switch(sectionName) {
+                case 'education':
+                    targetElement = document.querySelector('.education-section');
+                    break;
+                case 'experience':
+                    targetElement = document.querySelector('.experience-section');
+                    break;
+                case 'tools':
+                    targetElement = document.querySelector('.tools-languages-column');
+                    break;
+            }
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                targetElement.style.animation = 'highlight 1s ease';
             }
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('menuDropdown');
+            const menuBtn = document.querySelector('.menu-btn');
+            
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
 
         function highlightSkill(element) {
             // Remove previous highlights
@@ -882,6 +1130,12 @@
         .experience-item, .education-item {
             cursor: pointer;
             transition: transform 0.2s ease;
+        }
+
+        @keyframes highlight {
+            0% { background-color: transparent; }
+            50% { background-color: rgba(244, 208, 63, 0.3); }
+            100% { background-color: transparent; }
         }
     </style>
 </body>
