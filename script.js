@@ -1,18 +1,14 @@
-// 🚀 FUTURISTIC AI PORTFOLIO - INTERACTIVE JAVASCRIPT
+// 🚀 SINGLE PAGE PORTFOLIO - INTERACTIVE JAVASCRIPT
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize particle background
+    // Initialize all functionality
     initParticles();
+    initHoverEffects();
+    initTooltips();
+    initResponsive();
     
-    // Initialize animations
-    initScrollAnimations();
-    initNavigation();
-    initSkillBars();
-    initTypewriter();
-    initContactForm();
-    
-    // Add some interactive magic
-    addInteractiveEffects();
+    // Test all functionality
+    testFunctionality();
 });
 
 // 🌟 Particle Background
@@ -21,7 +17,7 @@ function initParticles() {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 100,
+                    value: 80,
                     density: {
                         enable: true,
                         value_area: 800
@@ -31,20 +27,15 @@ function initParticles() {
                     value: ['#00d4ff', '#ff006e', '#8338ec', '#06ffa5']
                 },
                 shape: {
-                    type: 'circle',
-                    stroke: {
-                        width: 0,
-                        color: '#000000'
-                    }
+                    type: 'circle'
                 },
                 opacity: {
-                    value: 0.5,
+                    value: 0.4,
                     random: true,
                     anim: {
                         enable: true,
                         speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
+                        opacity_min: 0.1
                     }
                 },
                 size: {
@@ -52,31 +43,24 @@ function initParticles() {
                     random: true,
                     anim: {
                         enable: true,
-                        speed: 4,
-                        size_min: 0.3,
-                        sync: false
+                        speed: 2,
+                        size_min: 0.3
                     }
                 },
                 line_linked: {
                     enable: true,
                     distance: 150,
                     color: '#00d4ff',
-                    opacity: 0.4,
+                    opacity: 0.2,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: 1.5,
                     direction: 'none',
                     random: false,
                     straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
+                    out_mode: 'out'
                 }
             },
             interactivity: {
@@ -89,31 +73,14 @@ function initParticles() {
                     onclick: {
                         enable: true,
                         mode: 'push'
-                    },
-                    resize: true
+                    }
                 },
                 modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
                     repulse: {
-                        distance: 200,
+                        distance: 100,
                         duration: 0.4
                     },
                     push: {
-                        particles_nb: 4
-                    },
-                    remove: {
                         particles_nb: 2
                     }
                 }
@@ -123,408 +90,327 @@ function initParticles() {
     }
 }
 
-// 🎯 Navigation
-function initNavigation() {
-    const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(10, 10, 11, 0.98)';
-            navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 11, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
-    
-    // Smooth scrolling
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-            
-            // Close mobile menu
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
-    
-    // Mobile menu toggle
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
-    
-    // Active link highlighting
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const sections = document.querySelectorAll('section');
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// 📊 Skill Bars Animation
-function initSkillBars() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    
-    const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const skillProgress = entry.target.querySelector('.skill-progress');
-                const skillPercentage = entry.target.getAttribute('data-skill');
-                
-                if (skillProgress && skillPercentage) {
-                    setTimeout(() => {
-                        skillProgress.style.width = skillPercentage + '%';
-                    }, 200);
-                }
-                
-                // Add glow effect
-                entry.target.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)';
-                setTimeout(() => {
-                    entry.target.style.boxShadow = '';
-                }, 1000);
-                
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    skillItems.forEach(item => {
-        observer.observe(item);
-    });
-}
-
-// ✨ Scroll Animations
-function initScrollAnimations() {
-    // Intersection Observer for fade-in animations
-    const observeElements = document.querySelectorAll('.experience-card, .project-card, .stat-item, .timeline-item');
-    
-    const fadeInObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                
-                // Add stagger effect for multiple items
-                const siblings = Array.from(entry.target.parentNode.children);
-                const index = siblings.indexOf(entry.target);
-                entry.target.style.transitionDelay = `${index * 0.1}s`;
-                
-                fadeInObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    observeElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(50px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        fadeInObserver.observe(el);
-    });
-    
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        const heroContent = document.querySelector('.hero-content');
-        
-        if (hero && scrolled < hero.offsetHeight) {
-            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-}
-
-// ⌨️ Typewriter Effect for Titles
-function initTypewriter() {
-    const titleItems = document.querySelectorAll('.title-item');
-    let currentIndex = 0;
-    
-    function showNextTitle() {
-        titleItems.forEach((item, index) => {
-            item.classList.remove('active');
-            if (index === currentIndex) {
-                item.classList.add('active');
-            }
-        });
-        
-        currentIndex = (currentIndex + 1) % titleItems.length;
-    }
-    
-    // Initial display
-    if (titleItems.length > 0) {
-        titleItems[0].classList.add('active');
-        setInterval(showNextTitle, 3000);
-    }
-}
-
-// 📧 Contact Form
-function initContactForm() {
-    const form = document.querySelector('.form');
-    const submitBtn = document.querySelector('.submit-btn');
-    
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Add loading state
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class=\"fas fa-spinner fa-spin\"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                // Success animation
-                submitBtn.innerHTML = '<i class=\"fas fa-check\"></i> Message Sent!';
-                submitBtn.style.background = 'linear-gradient(135deg, #06ffa5, #00d4ff)';
-                
-                // Reset form
-                form.reset();
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                }, 3000);
-                
-                // Show success message
-                showNotification('Message sent successfully! 🚀', 'success');
-            }, 2000);
-        });
-    }
-}
-
-// 🎮 Interactive Effects
-function addInteractiveEffects() {
-    // Cursor trail effect
-    createCursorTrail();
-    
-    // Card tilt effects
-    addCardTiltEffects();
-    
-    // Floating animation for icons
-    addFloatingAnimations();
-    
-    // Add hover sound effects (optional)
-    addSoundEffects();
-    
-    // Keyboard shortcuts
-    addKeyboardShortcuts();
-}
-
-// 🌟 Cursor Trail
-function createCursorTrail() {
-    const trail = [];
-    const trailLength = 20;
-    
-    for (let i = 0; i < trailLength; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'cursor-trail';
-        dot.style.cssText = `
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: linear-gradient(45deg, #00d4ff, #ff006e);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: ${1 - i / trailLength};
-            transition: all 0.1s ease;
-        `;
-        document.body.appendChild(dot);
-        trail.push(dot);
-    }
-    
-    let mouseX = 0, mouseY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    function animateTrail() {
-        let x = mouseX, y = mouseY;
-        
-        trail.forEach((dot, index) => {
-            const nextDot = trail[index + 1] || trail[0];
-            dot.style.left = x + 'px';
-            dot.style.top = y + 'px';
-            
-            if (nextDot) {
-                x += (nextDot.offsetLeft - x) * 0.3;
-                y += (nextDot.offsetTop - y) * 0.3;
-            }
-        });
-        
-        requestAnimationFrame(animateTrail);
-    }
-    
-    animateTrail();
-}
-
-// 🎲 Card Tilt Effects
-function addCardTiltEffects() {
-    const cards = document.querySelectorAll('.experience-card, .project-card, .skill-category');
-    
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+// ✨ Hover Effects
+function initHoverEffects() {
+    // Experience card flip effects
+    const experienceCards = document.querySelectorAll('.experience-card');
+    experienceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'scale(1.02)';
         });
         
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            card.style.transform = 'scale(1)';
+        });
+    });
+
+    // Skill category hover effects
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach(category => {
+        category.addEventListener('mouseenter', () => {
+            // Animate skill bars on hover
+            const skillBars = category.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const currentWidth = bar.style.width;
+                bar.style.transform = 'scaleY(1.5)';
+                bar.style.boxShadow = '0 0 10px rgba(0, 212, 255, 0.5)';
+            });
+        });
+        
+        category.addEventListener('mouseleave', () => {
+            const skillBars = category.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                bar.style.transform = 'scaleY(1)';
+                bar.style.boxShadow = 'none';
+            });
+        });
+    });
+
+    // Project card hover effects
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const icon = card.querySelector('.project-icon');
+            if (icon) {
+                icon.style.transform = 'rotate(360deg) scale(1.1)';
+                icon.style.transition = 'transform 0.6s ease';
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            const icon = card.querySelector('.project-icon');
+            if (icon) {
+                icon.style.transform = 'rotate(0deg) scale(1)';
+            }
+        });
+    });
+
+    // Education card slide effects
+    const educationCards = document.querySelectorAll('.education-card');
+    educationCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const icon = card.querySelector('.education-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.2)';
+                icon.style.boxShadow = '0 0 15px rgba(0, 212, 255, 0.5)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            const icon = card.querySelector('.education-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1)';
+                icon.style.boxShadow = 'none';
+            }
+        });
+    });
+
+    // Contact link effects
+    const contactLinks = document.querySelectorAll('.contact-link');
+    contactLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            link.style.transform = 'translateY(-3px) scale(1.1)';
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            link.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Stats hover effects
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const number = item.querySelector('.stat-number');
+            if (number) {
+                number.style.transform = 'scale(1.1)';
+                number.style.textShadow = '0 0 10px rgba(0, 212, 255, 0.5)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            const number = item.querySelector('.stat-number');
+            if (number) {
+                number.style.transform = 'scale(1)';
+                number.style.textShadow = 'none';
+            }
         });
     });
 }
 
-// 🎈 Floating Animations
-function addFloatingAnimations() {
-    const floatingElements = document.querySelectorAll('.floating-icon, .social-link');
+// 💬 Tooltips
+function initTooltips() {
+    const tooltip = document.getElementById('tooltip');
+    const elementsWithTooltips = document.querySelectorAll('[title]');
     
-    floatingElements.forEach((element, index) => {
-        const amplitude = 10 + Math.random() * 10;
-        const frequency = 0.02 + Math.random() * 0.01;
-        const offset = Math.random() * Math.PI * 2;
+    elementsWithTooltips.forEach(element => {
+        element.addEventListener('mouseenter', (e) => {
+            const title = element.getAttribute('title');
+            if (title) {
+                tooltip.textContent = title;
+                tooltip.style.opacity = '1';
+                updateTooltipPosition(e);
+                element.removeAttribute('title');
+                element.setAttribute('data-title', title);
+            }
+        });
         
-        function animate() {
-            const time = Date.now() * frequency;
-            const y = Math.sin(time + offset) * amplitude;
-            const x = Math.cos(time * 0.5 + offset) * (amplitude * 0.5);
-            
-            element.style.transform += ` translate(${x}px, ${y}px)`;
-            requestAnimationFrame(animate);
-        }
+        element.addEventListener('mousemove', updateTooltipPosition);
         
-        // Stagger the animations
-        setTimeout(animate, index * 200);
+        element.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+            const title = element.getAttribute('data-title');
+            if (title) {
+                element.setAttribute('title', title);
+                element.removeAttribute('data-title');
+            }
+        });
     });
-}
-
-// 🔊 Sound Effects (Optional)
-function addSoundEffects() {
-    // Create audio context for sound effects
-    let audioContext;
     
-    function createBeep(frequency, duration) {
-        if (!audioContext) {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    function updateTooltipPosition(e) {
+        const tooltipRect = tooltip.getBoundingClientRect();
+        let x = e.clientX + 10;
+        let y = e.clientY - 30;
+        
+        // Prevent tooltip from going off screen
+        if (x + tooltipRect.width > window.innerWidth) {
+            x = e.clientX - tooltipRect.width - 10;
+        }
+        if (y < 0) {
+            y = e.clientY + 10;
         }
         
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-        oscillator.type = 'sine';
-        
-        gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-        gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.01);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + duration);
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
     }
-    
-    // Add sound to buttons
-    const buttons = document.querySelectorAll('.btn, .social-link, .nav-link');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            createBeep(800, 0.1);
-        });
-        
-        button.addEventListener('click', () => {
-            createBeep(600, 0.2);
-        });
-    });
 }
 
-// ⌨️ Keyboard Shortcuts
-function addKeyboardShortcuts() {
-    document.addEventListener('keydown', (e) => {
-        // Alt + number keys for navigation
-        if (e.altKey) {
-            const sections = ['#home', '#about', '#experience', '#skills', '#projects', '#contact'];
-            const key = parseInt(e.key);
-            
-            if (key >= 1 && key <= sections.length) {
-                e.preventDefault();
-                const section = document.querySelector(sections[key - 1]);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
+// 📱 Responsive Handling
+function initResponsive() {
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Reinitialize particles on resize
+        if (window.innerWidth < 768 && typeof pJSDom !== 'undefined') {
+            // Reduce particles on mobile
+            if (pJSDom[0] && pJSDom[0].pJS) {
+                pJSDom[0].pJS.particles.number.value = 30;
+                pJSDom[0].pJS.fn.particlesRefresh();
             }
         }
+    });
+
+    // Touch device optimizations
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
         
-        // Escape key to close mobile menu
-        if (e.key === 'Escape') {
-            const navMenu = document.querySelector('.nav-menu');
-            const hamburger = document.querySelector('.hamburger');
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
+        // Convert hover effects to tap effects on mobile
+        const hoverElements = document.querySelectorAll('.experience-card, .skill-category, .project-card');
+        hoverElements.forEach(element => {
+            element.addEventListener('touchstart', () => {
+                element.style.transform = element.style.transform.replace('scale(1)', 'scale(1.02)');
+            });
+            
+            element.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    element.style.transform = element.style.transform.replace('scale(1.02)', 'scale(1)');
+                }, 200);
+            });
+        });
+    }
+}
+
+// 🧪 Test All Functionality
+function testFunctionality() {
+    const tests = [];
+    
+    // Test 1: Check if all required elements exist
+    tests.push({
+        name: 'DOM Elements',
+        test: () => {
+            const requiredElements = [
+                '.profile-image',
+                '.contact-link',
+                '.experience-card',
+                '.skill-category',
+                '.project-card',
+                '.education-card',
+                '.stat-item'
+            ];
+            
+            return requiredElements.every(selector => {
+                const elements = document.querySelectorAll(selector);
+                return elements.length > 0;
+            });
         }
     });
+    
+    // Test 2: Check if all links are valid
+    tests.push({
+        name: 'Links Validation',
+        test: () => {
+            const links = document.querySelectorAll('a[href]');
+            return Array.from(links).every(link => {
+                const href = link.getAttribute('href');
+                return href && (
+                    href.startsWith('http') || 
+                    href.startsWith('mailto:') || 
+                    href.startsWith('tel:') || 
+                    href.startsWith('assets/')
+                );
+            });
+        }
+    });
+    
+    // Test 3: Check if GitHub link is correct
+    tests.push({
+        name: 'GitHub Link',
+        test: () => {
+            const githubLink = document.querySelector('a[href*="github.com"]');
+            return githubLink && githubLink.href === 'https://github.com/Rayfreshh';
+        }
+    });
+    
+    // Test 4: Check if CV download link exists
+    tests.push({
+        name: 'CV Download',
+        test: () => {
+            const cvLink = document.querySelector('a[href*="CV.pdf"]');
+            return cvLink && cvLink.hasAttribute('download');
+        }
+    });
+    
+    // Test 5: Check if skill percentages are visible
+    tests.push({
+        name: 'Skill Percentages',
+        test: () => {
+            const percentages = document.querySelectorAll('.percentage');
+            return percentages.length > 0 && Array.from(percentages).every(p => p.textContent.includes('%'));
+        }
+    });
+    
+    // Test 6: Check if hover effects work
+    tests.push({
+        name: 'Hover Effects',
+        test: () => {
+            const hoverElements = document.querySelectorAll('.experience-card, .skill-category');
+            return hoverElements.length > 0;
+        }
+    });
+    
+    // Test 7: Check responsive layout
+    tests.push({
+        name: 'Responsive Layout',
+        test: () => {
+            const mainContainer = document.querySelector('.main-container');
+            return mainContainer && getComputedStyle(mainContainer).display === 'grid';
+        }
+    });
+    
+    // Run all tests
+    const results = tests.map(test => ({
+        name: test.name,
+        passed: test.test(),
+        timestamp: new Date().toISOString()
+    }));
+    
+    // Log results
+    console.group('🧪 Portfolio Functionality Tests');
+    results.forEach(result => {
+        const icon = result.passed ? '✅' : '❌';
+        console.log(`${icon} ${result.name}: ${result.passed ? 'PASSED' : 'FAILED'}`);
+    });
+    
+    const passedTests = results.filter(r => r.passed).length;
+    const totalTests = results.length;
+    
+    console.log(`\n📊 Test Summary: ${passedTests}/${totalTests} tests passed`);
+    
+    if (passedTests === totalTests) {
+        console.log('🎉 All tests passed! Portfolio is ready to go!');
+        showNotification('Portfolio loaded successfully! All tests passed! 🎉', 'success');
+    } else {
+        console.warn('⚠️ Some tests failed. Please check the implementation.');
+        showNotification('Some functionality tests failed. Check console for details.', 'warning');
+    }
+    
+    console.groupEnd();
+    
+    return results;
 }
 
 // 🔔 Notification System
 function showNotification(message, type = 'info') {
+    // Create notification element
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: linear-gradient(135deg, #00d4ff, #8338ec);
+        background: ${type === 'success' ? 'linear-gradient(135deg, #06ffa5, #00d4ff)' : 
+                   type === 'warning' ? 'linear-gradient(135deg, #ffbe0b, #ff006e)' : 
+                   'linear-gradient(135deg, #00d4ff, #8338ec)'};
         color: white;
-        padding: 1rem 2rem;
+        padding: 12px 20px;
         border-radius: 25px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         z-index: 10000;
@@ -532,9 +418,12 @@ function showNotification(message, type = 'info') {
         transition: transform 0.3s ease;
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        font-weight: 500;
+        max-width: 300px;
     `;
-    notification.textContent = message;
     
+    notification.textContent = message;
     document.body.appendChild(notification);
     
     // Animate in
@@ -542,137 +431,85 @@ function showNotification(message, type = 'info') {
         notification.style.transform = 'translateX(0)';
     }, 100);
     
-    // Remove after 3 seconds
+    // Remove after 4 seconds
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
-    }, 3000);
+    }, 4000);
 }
 
-// 🎨 Dynamic Color Theme
-function initDynamicTheme() {
-    const colors = [
-        { primary: '#00d4ff', secondary: '#ff006e' },
-        { primary: '#8338ec', secondary: '#06ffa5' },
-        { primary: '#3a86ff', secondary: '#ffbe0b' },
-        { primary: '#ff006e', secondary: '#00d4ff' }
-    ];
-    
-    let currentTheme = 0;
-    
-    function changeTheme() {
-        const theme = colors[currentTheme];
-        document.documentElement.style.setProperty('--accent-1', theme.primary);
-        document.documentElement.style.setProperty('--accent-2', theme.secondary);
+// 🎯 Performance Monitoring
+function monitorPerformance() {
+    // Monitor loading time
+    window.addEventListener('load', () => {
+        const loadTime = performance.now();
+        console.log(`⚡ Portfolio loaded in ${loadTime.toFixed(2)}ms`);
         
-        currentTheme = (currentTheme + 1) % colors.length;
-    }
-    
-    // Change theme every 30 seconds
-    setInterval(changeTheme, 30000);
-}
-
-// 📱 Mobile Optimizations
-function initMobileOptimizations() {
-    // Disable animations on mobile for better performance
-    if (window.innerWidth < 768) {
-        document.body.classList.add('mobile');
-        
-        // Reduce particle count on mobile
-        if (typeof particlesJS !== 'undefined') {
-            const particlesConfig = {
-                particles: { number: { value: 30 } }
-            };
-            particlesJS('particles-js', particlesConfig);
+        if (loadTime > 3000) {
+            console.warn('⚠️ Slow loading detected. Consider optimizing assets.');
         }
-    }
-    
-    // Handle orientation change
-    window.addEventListener('orientationchange', () => {
-        setTimeout(() => {
-            window.scrollTo(0, 0);
-        }, 100);
     });
-}
-
-// 🚀 Performance Monitoring
-function initPerformanceMonitoring() {
-    // Monitor FPS
-    let fps = 0;
-    let lastTime = performance.now();
     
-    function measureFPS() {
-        const currentTime = performance.now();
-        fps = 1000 / (currentTime - lastTime);
-        lastTime = currentTime;
-        
-        // Reduce effects if FPS is too low
-        if (fps < 30) {
-            document.body.classList.add('low-performance');
-        }
-        
-        requestAnimationFrame(measureFPS);
+    // Monitor memory usage (if available)
+    if (performance.memory) {
+        setInterval(() => {
+            const memory = performance.memory;
+            const usedMB = Math.round(memory.usedJSHeapSize / 1048576);
+            
+            if (usedMB > 50) {
+                console.warn(`⚠️ High memory usage detected: ${usedMB}MB`);
+            }
+        }, 30000); // Check every 30 seconds
     }
-    
-    measureFPS();
 }
 
-// 🎯 Scroll Progress Indicator
-function initScrollProgress() {
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #00d4ff, #ff006e, #8338ec);
-        z-index: 10000;
-        transition: width 0.1s ease;
-    `;
-    document.body.appendChild(progressBar);
-    
-    window.addEventListener('scroll', () => {
-        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        progressBar.style.width = scrollPercent + '%';
-    });
+// 🔧 Utility Functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
 
-// Initialize everything when DOM is ready
+// 🚀 Initialize Performance Monitoring
+monitorPerformance();
+
+// 🎉 Ready State
 document.addEventListener('DOMContentLoaded', () => {
-    initDynamicTheme();
-    initMobileOptimizations();
-    initPerformanceMonitoring();
-    initScrollProgress();
-});
-
-// 🎪 Easter Eggs
-document.addEventListener('keydown', (e) => {
-    // Konami Code
-    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-    let konamiIndex = 0;
+    console.log('🚀 Portfolio initialized successfully!');
     
-    if (e.code === konamiCode[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konamiCode.length) {
-            // Activate party mode!
-            document.body.style.animation = 'rainbow 2s infinite';
-            showNotification('🎉 Party Mode Activated! 🎉', 'success');
-            konamiIndex = 0;
-        }
-    } else {
-        konamiIndex = 0;
-    }
+    // Add loaded class for animations
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 500);
 });
 
-// Add rainbow animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes rainbow {
-        0% { filter: hue-rotate(0deg); }
-        100% { filter: hue-rotate(360deg); }
-    }
-`;
-document.head.appendChild(style);
+// 🛡️ Error Handling
+window.addEventListener('error', (event) => {
+    console.error('❌ JavaScript Error:', event.error);
+    showNotification('An error occurred. Please refresh the page.', 'warning');
+});
+
+// 📱 Orientation Change
+window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+    }, 100);
+});
+
+// 🎯 Export for testing (if needed)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        testFunctionality,
+        showNotification
+    };
+}
