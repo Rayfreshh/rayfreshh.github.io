@@ -3,220 +3,651 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Etiosa Raymond - AI Engineer</title>
+  <title>Samson Raymond - AI/ML Engineer</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <header class="hero">
-      <div class="hero-content">
-        <div class="profile-section">
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-text">SR</span>
+        <div class="logo-glow"></div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="greeting">
+          <span class="wave">👋</span>
+          <span>Hello, I'm</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="name-part">Samson</span>
+          <span class="name-part">Raymond</span>
+        </h1>
+        <div class="hero-titles">
+          <span class="title-item active">AI/ML Engineer</span>
+          <span class="title-item">Data Scientist</span>
+          <span class="title-item">Cloud Engineer</span>
+          <span class="title-item">Python Developer</span>
+        </div>
+        <p class="hero-description">
+          Transforming concepts into operational AI systems with expertise in cloud, data science, and machine learning. 
+          I create scalable solutions that deliver measurable, impactful value.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-rocket"></i>
+            Let's Work Together
+          </a>
+          <a href="assets/Etiosa_Raymond_CV.pdf" class="btn btn-secondary" download>
+            <i class="fas fa-download"></i>
+            Download CV
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="mailto:samsonraymond63@yahoo.com" class="social-link email">
+            <i class="fas fa-envelope"></i>
+            <span class="tooltip">Email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link linkedin">
+            <i class="fab fa-linkedin"></i>
+            <span class="tooltip">LinkedIn</span>
+          </a>
+          <a href="https://github.com/rayfreshh" class="social-link github">
+            <i class="fab fa-github"></i>
+            <span class="tooltip">GitHub</span>
+          </a>
+          <a href="tel:+31623265203" class="social-link phone">
+            <i class="fas fa-phone"></i>
+            <span class="tooltip">Call</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="profile-container">
           <div class="profile-image-wrapper">
-            <img src="assets/IMG_0930.jpeg" alt="Etiosa Raymond" class="profile-image">
-            <div class="status-indicator"></div>
+            <img src="assets/IMG_0930.jpeg" alt="Samson Raymond" class="profile-image">
+            <div class="image-glow"></div>
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
           </div>
-          <div class="intro">
-            <h1 class="name">Etiosa Raymond</h1>
-            <p class="title">AI Engineer & Researcher</p>
-            <p class="bio">Specializing in ethical AI, fairness-aware methods, and human-AI interaction. Passionate about building responsible AI systems that benefit society.</p>
-            <div class="social-links">
-              <a href="mailto:samsonraymond63@yahoo.com" class="social-link" title="Email">
-                <i class="fas fa-envelope"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://github.com/etiosaraymond" class="social-link" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="#" class="social-link" title="Download CV">
-                <i class="fas fa-file-download"></i>
-              </a>
+          <div class="floating-elements">
+            <div class="floating-icon" data-icon="python"><i class="fab fa-python"></i></div>
+            <div class="floating-icon" data-icon="aws"><i class="fab fa-aws"></i></div>
+            <div class="floating-icon" data-icon="docker"><i class="fab fa-docker"></i></div>
+            <div class="floating-icon" data-icon="react"><i class="fab fa-react"></i></div>
+            <div class="floating-icon" data-icon="git"><i class="fab fa-git-alt"></i></div>
+            <div class="floating-icon" data-icon="ai"><i class="fas fa-brain"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll down</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <div class="about-intro">
+            <h3>Passionate AI Engineer from The Netherlands</h3>
+            <p>
+              I'm an AI/ML Engineer with a strong foundation in cloud, data science, and data engineering. 
+              Currently working at <span class="highlight">Cymo B.V.</span> developing deep learning models for medical devices, 
+              boosting precision by 20% and reducing false alarms by 10%.
+            </p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">2+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">20%</div>
+              <div class="stat-label">Precision Boost</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">25%</div>
+              <div class="stat-label">Accuracy Improvement</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">40%</div>
+              <div class="stat-label">Time Reduction</div>
+            </div>
+          </div>
+        </div>
+        <div class="education-timeline">
+          <h3>Education & Certifications</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Masters in Smart Systems Engineering</h4>
+                <p>Hanze University of Applied Sciences</p>
+                <span class="timeline-date">2023-2025</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Bachelors in Oil and Gas Engineering</h4>
+                <p>Ivano-Frankivsk National Technical University</p>
+                <span class="timeline-date">2018-2022</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Python & Computer Vision Certifications</h4>
+                <p>Udemy</p>
+                <span class="timeline-date">2024</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="scroll-indicator">
-        <div class="scroll-arrow"></div>
-      </div>
-    </header>
+    </div>
+  </section>
 
-    <main class="main-content">
-      <section class="section experience">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-briefcase"></i>
-            Experience
-          </h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>AI Engineer</h3>
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <div class="card-header">
+            <div class="company-logo">
+              <i class="fas fa-stethoscope"></i>
+            </div>
+            <div class="card-info">
+              <h3>AI/ML Engineer</h3>
               <h4>Cymo B.V.</h4>
-              <p>Healthcare AI research and deployment. Developing machine learning models for medical applications and ensuring ethical AI practices in healthcare settings.</p>
-              <div class="tags">
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Healthcare AI</span>
-                <span class="tag">Ethics</span>
-              </div>
+              <span class="date">August 2024 - Present</span>
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Research Project</h3>
+          <p>Developed deep learning models for endoscopy devices, boosting precision by 20% and reducing false alarms by 10%. Leading research in generative AI integration for Medical Edge devices.</p>
+          <div class="achievements">
+            <div class="achievement">
+              <i class="fas fa-chart-line"></i>
+              <span>20% precision boost</span>
+            </div>
+            <div class="achievement">
+              <i class="fas fa-shield-alt"></i>
+              <span>10% fewer false alarms</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="card-header">
+            <div class="company-logo">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div class="card-info">
+              <h3>R&D Intern - AI/ML Focused</h3>
               <h4>Tata Steel</h4>
-              <p>Developed predictive systems for coil print quality checks using computer vision and deep learning techniques.</p>
-              <div class="tags">
-                <span class="tag">Computer Vision</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">Quality Control</span>
+              <span class="date">September 2024 - March 2025</span>
+            </div>
+          </div>
+          <p>Designed predictive maintenance system for printed coil legibility assessment. Applied deep learning and computer vision techniques, increasing accuracy by 25%.</p>
+          <div class="achievements">
+            <div class="achievement">
+              <i class="fas fa-eye"></i>
+              <span>25% accuracy increase</span>
+            </div>
+            <div class="achievement">
+              <i class="fas fa-clock"></i>
+              <span>40% time reduction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="card-header">
+            <div class="company-logo">
+              <i class="fas fa-truck"></i>
+            </div>
+            <div class="card-info">
+              <h3>Logistics Technician</h3>
+              <h4>Scania</h4>
+              <span class="date">June 2023 - August 2024</span>
+            </div>
+          </div>
+          <p>Administered Oracle database systems to control orders and optimize inventory. Reduced stock errors by 15% and implemented comprehensive safety protocols.</p>
+          <div class="achievements">
+            <div class="achievement">
+              <i class="fas fa-database"></i>
+              <span>15% error reduction</span>
+            </div>
+            <div class="achievement">
+              <i class="fas fa-shield-alt"></i>
+              <span>Enhanced safety protocols</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Programming Languages</h3>
+          <div class="skill-grid">
+            <div class="skill-item" data-skill="95">
+              <div class="skill-icon python"><i class="fab fa-python"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <span class="skill-percentage">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="80">
+              <div class="skill-icon bash"><i class="fas fa-terminal"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Bash</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="85">
+              <div class="skill-icon sql"><i class="fas fa-database"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">SQL</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="section education">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-graduation-cap"></i>
-            Education
-          </h2>
-        </div>
-        <div class="education-grid">
-          <div class="education-card">
-            <div class="education-icon">
-              <i class="fas fa-university"></i>
-            </div>
-            <div class="education-content">
-              <h3>Master in Smart Systems</h3>
-              <h4>Hanze University of Applied Sciences</h4>
-              <p class="status">Graduated</p>
-            </div>
-          </div>
-          <div class="education-card">
-            <div class="education-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <div class="education-content">
-              <h3>Bachelor in Oil and Gas Engineering</h3>
-              <h4>Manufacturing Technology Focus</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section skills">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-code"></i>
-            Skills & Technologies
-          </h2>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Programming & Tools</h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Python</span>
-                  <span class="skill-level">Expert</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="90"></div>
-                </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+          <div class="skill-grid">
+            <div class="skill-item" data-skill="90">
+              <div class="skill-icon tensorflow"><i class="fas fa-project-diagram"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">TensorFlow/Keras</span>
+                <span class="skill-percentage">90%</span>
               </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">PyTorch</span>
-                  <span class="skill-level">Advanced</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="85"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Computer Vision</span>
-                  <span class="skill-level">Expert</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="90"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">LLMs</span>
-                  <span class="skill-level">Intermediate</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="75"></div>
-                </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%;"></div>
               </div>
             </div>
-          </div>
-          <div class="skill-category">
-            <h3>Languages</h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">English</span>
-                  <span class="skill-level">Fluent</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="95"></div>
-                </div>
+            <div class="skill-item" data-skill="88">
+              <div class="skill-icon pytorch"><i class="fas fa-fire"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">PyTorch</span>
+                <span class="skill-percentage">88%</span>
               </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Dutch</span>
-                  <span class="skill-level">Intermediate</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="60"></div>
-                </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="92">
+              <div class="skill-icon opencv"><i class="fas fa-eye"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Computer Vision</span>
+                <span class="skill-percentage">92%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 92%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="85">
+              <div class="skill-icon nlp"><i class="fas fa-language"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">NLP & LLMs</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
-  </div>
 
-  <script>
-    // Animate skill bars on scroll
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -50px 0px'
-    };
+        <div class="skill-category">
+          <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+          <div class="skill-grid">
+            <div class="skill-item" data-skill="87">
+              <div class="skill-icon aws"><i class="fab fa-aws"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">AWS</span>
+                <span class="skill-percentage">87%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 87%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="82">
+              <div class="skill-icon azure"><i class="fab fa-microsoft"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Azure</span>
+                <span class="skill-percentage">82%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 82%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="90">
+              <div class="skill-icon docker"><i class="fab fa-docker"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Docker</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="85">
+              <div class="skill-icon git"><i class="fab fa-git-alt"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Git/CI-CD</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const progressBars = entry.target.querySelectorAll('.skill-progress');
-          progressBars.forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            bar.style.width = width + '%';
-          });
-        }
-      });
-    }, observerOptions);
+        <div class="skill-category">
+          <h3><i class="fas fa-globe"></i> Languages</h3>
+          <div class="skill-grid">
+            <div class="skill-item" data-skill="100">
+              <div class="skill-icon english"><i class="fas fa-flag-usa"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">English</span>
+                <span class="skill-percentage">Native</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="60">
+              <div class="skill-icon dutch"><i class="fas fa-flag"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Dutch</span>
+                <span class="skill-percentage">A2</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 60%;"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="60">
+              <div class="skill-icon ukrainian"><i class="fas fa-flag"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Ukrainian</span>
+                <span class="skill-percentage">A2</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    document.querySelectorAll('.skills').forEach(section => {
-      observer.observe(section);
-    });
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <i class="fas fa-eye project-icon"></i>
+          </div>
+          <div class="project-content">
+            <h3>Computer Vision Pipeline</h3>
+            <p>Built a real-time coil print defect detection system achieving 99.5% validation accuracy using YOLO, OpenCV, and Azure deployment.</p>
+            <div class="project-tech">
+              <span class="tech-tag">YOLO</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            <div class="project-stats">
+              <div class="stat">
+                <i class="fas fa-bullseye"></i>
+                <span>99.5% Accuracy</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    // Smooth scrolling for scroll indicator
-    document.querySelector('.scroll-indicator').addEventListener('click', () => {
-      document.querySelector('.main-content').scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  </script>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <i class="fas fa-cloud project-icon"></i>
+          </div>
+          <div class="project-content">
+            <h3>Cloud Computing Solution</h3>
+            <p>Containerized and deployed web application using AWS ECS Fargate with ALB routing, achieving 10% resource cost reduction.</p>
+            <div class="project-tech">
+              <span class="tech-tag">AWS ECS</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">CloudWatch</span>
+              <span class="tech-tag">IAM</span>
+              <span class="tech-tag">ALB</span>
+            </div>
+            <div class="project-stats">
+              <div class="stat">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>10% Cost Reduction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <i class="fas fa-robot project-icon"></i>
+          </div>
+          <div class="project-content">
+            <h3>RAG Chatbot System</h3>
+            <p>Built an intelligent chatbot using vector embeddings for document-aware Q&A, improving retrieval accuracy by 30%.</p>
+            <div class="project-tech">
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Llama</span>
+              <span class="tech-tag">Vector DB</span>
+              <span class="tech-tag">Mistral</span>
+              <span class="tech-tag">API</span>
+            </div>
+            <div class="project-stats">
+              <div class="stat">
+                <i class="fas fa-search"></i>
+                <span>30% Better Retrieval</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Ready to create something amazing?</h3>
+          <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about AI and technology.</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <a href="mailto:samsonraymond63@yahoo.com">samsonraymond63@yahoo.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Phone</h4>
+                <a href="tel:+31623265203">+31 6 23265203</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Location</h4>
+                <span>The Netherlands</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-btn linkedin">
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/rayfreshh" class="social-btn github">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="assets/Etiosa_Raymond_CV.pdf" class="social-btn cv" download>
+              <i class="fas fa-file-pdf"></i>
+              <span>Download CV</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form class="form">
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Your Name" required>
+              <label class="form-label">Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="Your Email" required>
+              <label class="form-label">Email</label>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Subject" required>
+              <label class="form-label">Subject</label>
+            </div>
+            <div class="form-group">
+              <textarea class="form-input" rows="5" placeholder="Your Message" required></textarea>
+              <label class="form-label">Message</label>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2024 Samson Raymond. Crafted with passion and precision.</p>
+        <div class="footer-links">
+          <a href="#home">Back to Top</a>
+          <a href="assets/Etiosa_Raymond_CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
