@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samson Raymond - Portfolio</title>
+    <title>Etiosa Raymond - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: #f5f5f5;
             overflow-x: auto;
             overflow-y: hidden;
@@ -75,7 +75,7 @@
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr auto auto;
+            grid-template-rows: 1fr;
             max-width: 1400px;
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -87,6 +87,11 @@
         .tools-languages-column {
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        .tools-languages-column .column-dot {
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .fullscreen-btn {
@@ -108,6 +113,22 @@
             background: #333;
         }
 
+        /* Column Decorations */
+        .column-dots {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .column-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
         /* Profile Section */
         .profile-section {
             background-color: #1a1a1a;
@@ -119,6 +140,10 @@
             animation: slideInLeft 0.8s ease-out;
             word-wrap: break-word;
             overflow-wrap: break-word;
+        }
+
+        .profile-section .column-dot {
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
         .profile-header {
@@ -161,9 +186,9 @@
             width: 100%;
             height: 200px;
             background: url('assets/IMG_0930.jpeg');
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: center -40px;
             margin-bottom: 30px;
             border-radius: 8px;
             border: 1px solid #333;
@@ -218,6 +243,11 @@
             overflow-wrap: break-word;
             hyphens: auto;
             max-width: 100%;
+            position: relative;
+        }
+
+        .education-section .column-dot {
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .section-header {
@@ -295,6 +325,11 @@
             overflow-wrap: break-word;
             hyphens: auto;
             max-width: 100%;
+            position: relative;
+        }
+
+        .experience-section .column-dot {
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
         .experience-section .section-title {
@@ -590,8 +625,13 @@
         <div class="container">
         <!-- Profile Section -->
         <div class="profile-section">
+            <div class="column-dots">
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+            </div>
             <div class="profile-header">
-                <h1 class="name" onclick="window.location.href='bio.html'">Samson<br>Raymond</h1>
+                <h1 class="name" onclick="window.location.href='bio.html'">Etiosa<br>Raymond</h1>
                 <div class="arrow" onclick="window.location.href='bio.html'" title="View Bio">↗</div>
             </div>
             
@@ -629,6 +669,11 @@
 
         <!-- Education Section -->
         <div class="education-section">
+            <div class="column-dots">
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+            </div>
             <div class="section-header">
                 <div class="dots">
                     <div class="dot"></div>
@@ -660,6 +705,11 @@
 
         <!-- Experience Section -->
         <div class="experience-section">
+            <div class="column-dots">
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+            </div>
             <div class="section-header">
                 <h2 class="section-title">Experience</h2>
             </div>
@@ -688,6 +738,11 @@
 
         <!-- Tools & Languages Combined Column -->
         <div class="tools-languages-column">
+            <div class="column-dots">
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+                <div class="column-dot"></div>
+            </div>
             <!-- Tools Section -->
             <div class="tools-section">
                 <h2 class="section-title">Tools</h2>
@@ -771,18 +826,6 @@
             </div>
         </div>
 
-        <!-- Home Row -->
-        <div class="home-row" onclick="window.location.href='index.html'">
-            <div class="home-text">Home</div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="navigation">
-            <a href="index.html" class="nav-item">
-                <span class="home-icon">🏠</span>
-                Portfolio
-            </a>
-        </div>
         </div>
     </div>
 
