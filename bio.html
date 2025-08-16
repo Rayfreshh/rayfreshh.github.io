@@ -59,12 +59,15 @@
         }
 
         .main-wrapper {
-            padding: 10px;
+            padding: 20px;
             background-color: #e8e8e8;
             min-height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            box-sizing: border-box;
         }
 
         .container {
@@ -72,6 +75,7 @@
             grid-template-columns: 1fr 2fr;
             grid-template-rows: 1fr auto auto;
             max-width: 1400px;
+            height: calc(100vh - 40px);
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
