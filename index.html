@@ -98,6 +98,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            animation: slideInRight 0.8s ease-out 0.6s both;
         }
 
         .tools-languages-column .column-dot {
@@ -114,13 +115,18 @@
             transform: rotate(35deg);
             opacity: 0.8;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .arrow:hover {
             opacity: 1;
-            transform: rotate(35deg) scale(1.1);
+            transform: rotate(35deg) scale(1.2) translateX(-5px) translateY(-5px);
             color: #f4d03f;
+            text-shadow: 0 0 15px rgba(244, 208, 63, 0.6);
+        }
+
+        .arrow:active {
+            transform: rotate(35deg) scale(0.9);
         }
 
         .arrow-labels {
@@ -177,6 +183,20 @@
         .menu-item-icon {
             margin-right: 10px;
             font-size: 18px;
+        }
+
+        /* Alignment Guides for Columns 2-4 */
+        .education-section::before,
+        .experience-section::before,
+        .tools-languages-column::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 60px;
+            width: 2px;
+            height: calc(100% - 120px);
+            background: linear-gradient(to bottom, transparent 0%, rgba(244, 208, 63, 0.3) 50%, transparent 100%);
+            z-index: 1;
         }
 
         /* Column Decorations */
@@ -249,13 +269,18 @@
             transform: rotate(35deg);
             opacity: 0.8;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .arrow:hover {
             opacity: 1;
-            transform: rotate(35deg) scale(1.1);
+            transform: rotate(35deg) scale(1.2) translateX(-5px) translateY(-5px);
             color: #f4d03f;
+            text-shadow: 0 0 15px rgba(244, 208, 63, 0.6);
+        }
+
+        .arrow:active {
+            transform: rotate(35deg) scale(0.9);
         }
 
         .profile-image {
@@ -303,10 +328,20 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
         }
 
         .social-link:hover {
-            background-color: #555;
+            background-color: #f4d03f;
+            color: #1a1a1a;
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.4);
+        }
+
+        .social-link:active {
+            transform: scale(0.95);
         }
 
         /* Education Section */
@@ -456,11 +491,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .add-btn:hover {
-            background-color: white;
+            background-color: #f4d03f;
             color: #e74c3c;
+            transform: scale(1.1) rotate(90deg);
+            border-color: #f4d03f;
+            box-shadow: 0 0 15px rgba(244, 208, 63, 0.4);
+        }
+
+        .add-btn:active {
+            transform: scale(0.9);
         }
 
         /* Tools Section */
@@ -472,6 +515,13 @@
             overflow-wrap: break-word;
             hyphens: auto;
             max-width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .tools-section:hover {
+            background-color: #fafafa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .tools-section .section-title {
@@ -492,6 +542,13 @@
             font-size: 18px;
             color: #333;
             font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-name:hover {
+            color: #f4d03f;
+            transform: translateX(5px);
         }
 
         .skill-bar {
@@ -513,6 +570,13 @@
             background-color: #333;
             border-radius: 1px;
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .skill-bar:hover .skill-progress {
+            height: 3px;
+            background-color: #f4d03f;
+            box-shadow: 0 0 10px rgba(244, 208, 63, 0.3);
         }
 
         .skill-knob {
@@ -524,6 +588,14 @@
             background-color: #333;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-knob:hover {
+            transform: scale(1.2);
+            background-color: #f4d03f;
+            box-shadow: 0 4px 8px rgba(244, 208, 63, 0.4);
         }
 
         .skill-tooltip {
@@ -565,10 +637,13 @@
             font-size: 24px;
             color: #999;
             cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .add-tool:hover {
-            color: #333;
+            color: #f4d03f;
+            transform: scale(1.2) rotate(90deg);
+            text-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
         }
 
         /* Languages Section */
@@ -581,6 +656,13 @@
             overflow-wrap: break-word;
             hyphens: auto;
             max-width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .languages-section:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
         }
 
         .languages-section .section-title {
@@ -601,6 +683,13 @@
         .language-name {
             font-size: 18px;
             font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .language-name:hover {
+            color: #f4d03f;
+            transform: translateX(5px);
         }
 
         .language-bar {
@@ -622,6 +711,13 @@
             background-color: white;
             border-radius: 1px;
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .language-bar:hover .language-progress {
+            height: 3px;
+            background-color: #f4d03f;
+            box-shadow: 0 0 10px rgba(244, 208, 63, 0.3);
         }
 
         .language-knob {
@@ -633,6 +729,14 @@
             background-color: white;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .language-knob:hover {
+            transform: scale(1.2);
+            background-color: #f4d03f;
+            box-shadow: 0 4px 8px rgba(244, 208, 63, 0.4);
         }
 
         .language-tooltip {
