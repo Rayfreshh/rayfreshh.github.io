@@ -70,7 +70,7 @@
         }
 
         .main-wrapper {
-            padding: 10px;
+            padding: 20px;
             background-color: #e8e8e8;
             min-height: 100vh;
             display: flex;
@@ -101,16 +101,28 @@
         }
 
 
-        /* Arrow Menu */
-        .arrow-menu-container {
-            position: relative;
-            display: inline-block;
+        .arrow {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 35px;
+            color: white;
+            transform: rotate(35deg);
+            opacity: 0.8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .arrow:hover {
+            opacity: 1;
+            transform: rotate(35deg) scale(1.1);
+            color: #f4d03f;
         }
 
         .arrow-labels {
             position: absolute;
-            bottom: -15px;
-            right: 0;
+            top: 40px;
+            right: 5px;
             display: flex;
             gap: 3px;
             font-size: 8px;
@@ -121,8 +133,8 @@
 
         .menu-dropdown {
             position: absolute;
-            top: 50px;
-            right: 0;
+            top: 80px;
+            right: 10px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -469,30 +481,29 @@
 
         .skill-bar {
             flex: 1;
-            height: 4px;
+            height: 2px;
             background-color: #eee;
             margin: 0 15px;
-            border-radius: 2px;
+            border-radius: 1px;
             overflow: visible;
             position: relative;
             padding: 10px 0;
         }
 
         .skill-progress {
-            height: 4px;
+            height: 2px;
             background-color: #333;
-            border-radius: 2px;
+            border-radius: 1px;
             position: relative;
         }
 
         .skill-knob {
             position: absolute;
-            right: -6px;
+            right: -8px;
             top: -4px;
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 8px;
             background-color: #333;
-            border: 2px solid white;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
@@ -574,30 +585,29 @@
 
         .language-bar {
             flex: 1;
-            height: 6px;
+            height: 2px;
             background-color: rgba(255, 255, 255, 0.3);
             margin: 0 15px;
-            border-radius: 3px;
+            border-radius: 1px;
             overflow: visible;
             position: relative;
             padding: 10px 0;
         }
 
         .language-progress {
-            height: 6px;
+            height: 2px;
             background-color: white;
-            border-radius: 3px;
+            border-radius: 1px;
             position: relative;
         }
 
         .language-knob {
             position: absolute;
-            right: -7px;
+            right: -8px;
             top: -4px;
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 8px;
             background-color: white;
-            border: 2px solid #2ecc71;
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
@@ -809,32 +819,31 @@
             <div class="profile-header">
                 <h1 class="name" onclick="window.location.href='bio.html'">Etiosa<br>Raymond</h1>
                 <p class="job-title-main">Smart Systems Engineer</p>
-                <div class="arrow-menu-container">
-                    <div class="arrow" onclick="toggleMenu()" title="Menu">↗</div>
-                    <div class="arrow-labels">
-                        <span>menu</span>
-                        <span>diag</span>
-                    </div>
-                    <!-- Menu Dropdown -->
-                    <div class="menu-dropdown" id="menuDropdown">
-                        <a href="#education" class="menu-item" onclick="scrollToSection('education')">
-                            <span class="menu-item-icon">🎓</span>
-                            Education
-                        </a>
-                        <a href="#experience" class="menu-item" onclick="scrollToSection('experience')">
-                            <span class="menu-item-icon">💼</span>
-                            Experience
-                        </a>
-                        <a href="#tools" class="menu-item" onclick="scrollToSection('tools')">
-                            <span class="menu-item-icon">🛠️</span>
-                            Tools & Skills
-                        </a>
-                        <a href="bio.html" class="menu-item">
-                            <span class="menu-item-icon">👤</span>
-                            Biography
-                        </a>
-                    </div>
+                <div class="arrow" onclick="toggleMenu()" title="Menu">↗</div>
+                <div class="arrow-labels">
+                    <span>menu</span>
+                    <span>diag</span>
                 </div>
+            </div>
+            
+            <!-- Menu Dropdown -->
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="#education" class="menu-item" onclick="scrollToSection('education')">
+                    <span class="menu-item-icon">🎓</span>
+                    Education
+                </a>
+                <a href="#experience" class="menu-item" onclick="scrollToSection('experience')">
+                    <span class="menu-item-icon">💼</span>
+                    Experience
+                </a>
+                <a href="#tools" class="menu-item" onclick="scrollToSection('tools')">
+                    <span class="menu-item-icon">🛠️</span>
+                    Tools & Skills
+                </a>
+                <a href="bio.html" class="menu-item">
+                    <span class="menu-item-icon">👤</span>
+                    Biography
+                </a>
             </div>
             
             <div class="profile-image"></div>
@@ -950,7 +959,7 @@
                 <h2 class="section-title">Tools</h2>
                 
                 <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">Python</span>
+                    <span class="tool-name">Python -</span>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 95%">
                             <div class="skill-knob"></div>
@@ -961,7 +970,7 @@
                 </div>
 
                 <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">TensorFlow</span>
+                    <span class="tool-name">TensorFlow -</span>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 90%">
                             <div class="skill-knob"></div>
@@ -972,7 +981,7 @@
                 </div>
 
                 <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">PyTorch</span>
+                    <span class="tool-name">PyTorch -</span>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 88%">
                             <div class="skill-knob"></div>
@@ -983,7 +992,7 @@
                 </div>
 
                 <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">Docker</span>
+                    <span class="tool-name">Docker -</span>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 90%">
                             <div class="skill-knob"></div>
@@ -994,7 +1003,7 @@
                 </div>
 
                 <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">AWS</span>
+                    <span class="tool-name">AWS -</span>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 87%">
                             <div class="skill-knob"></div>
@@ -1010,7 +1019,7 @@
                 <h2 class="section-title">Languages</h2>
                 
                 <div class="language-item" onclick="highlightSkill(this)">
-                    <span class="language-name">English</span>
+                    <span class="language-name">English -</span>
                     <div class="language-bar">
                         <div class="language-progress" style="width: 100%">
                             <div class="language-knob"></div>
@@ -1021,7 +1030,7 @@
                 </div>
 
                 <div class="language-item" onclick="highlightSkill(this)">
-                    <span class="language-name">Dutch</span>
+                    <span class="language-name">Dutch -</span>
                     <div class="language-bar">
                         <div class="language-progress" style="width: 75%">
                             <div class="language-knob"></div>
@@ -1032,7 +1041,7 @@
                 </div>
 
                 <div class="language-item" onclick="highlightSkill(this)">
-                    <span class="language-name">French</span>
+                    <span class="language-name">French -</span>
                     <div class="language-bar">
                         <div class="language-progress" style="width: 60%">
                             <div class="language-knob"></div>
@@ -1080,9 +1089,8 @@
         document.addEventListener('click', function(event) {
             const menu = document.getElementById('menuDropdown');
             const arrow = document.querySelector('.arrow');
-            const container = document.querySelector('.arrow-menu-container');
             
-            if (!container.contains(event.target)) {
+            if (!arrow.contains(event.target) && !menu.contains(event.target)) {
                 menu.classList.remove('show');
             }
         });
