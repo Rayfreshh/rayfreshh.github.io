@@ -17,6 +17,40 @@
             overflow: hidden;
         }
 
+        /* Loading Animations */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
         .container {
             display: grid;
             grid-template-columns: 300px 1fr;
@@ -29,10 +63,11 @@
         .profile-section {
             background-color: #1a1a1a;
             color: white;
-            padding: 40px 30px;
+            padding: 20px 15px;
             display: flex;
             flex-direction: column;
             position: relative;
+            animation: slideInLeft 0.8s ease-out;
         }
 
         .profile-header {
@@ -53,10 +88,11 @@
         }
 
         .arrow {
-            font-size: 60px;
+            font-size: 35px;
             color: white;
-            transform: rotate(45deg);
+            transform: rotate(35deg);
             margin-bottom: 20px;
+            opacity: 0.8;
         }
 
         .profile-image {
@@ -111,10 +147,11 @@
         /* Bio Section */
         .bio-section {
             background-color: white;
-            padding: 60px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            animation: slideInRight 0.8s ease-out 0.3s both;
         }
 
         .bio-title {
@@ -189,10 +226,11 @@
         .navigation {
             grid-column: 1 / -1;
             background-color: #1a1a1a;
-            padding: 20px 40px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             gap: 20px;
+            animation: fadeInScale 0.8s ease-out 0.8s both;
         }
 
         .nav-item {
@@ -248,10 +286,10 @@
             </div>
             
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link">in</a>
-                <a href="https://github.com/Rayfreshh" class="social-link">📧</a>
-                <a href="mailto:samsonraymond63@yahoo.com" class="social-link">✕</a>
-                <a href="assets/Etiosa_Raymond_CV.pdf" class="social-link" download>📄</a>
+                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="social-link">🔗</a>
+                <a href="https://github.com/Rayfreshh" class="social-link">🔗</a>
+                <a href="mailto:samsonraymond63@yahoo.com" class="social-link">🔗</a>
+                <a href="assets/Etiosa_Raymond_CV.pdf" class="social-link" download>🔗</a>
             </div>
         </div>
 
