@@ -454,6 +454,10 @@
             text-align: left;
         }
 
+        .experience-section .dot {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
         .experience-item {
             margin-bottom: 30px;
             position: relative;
@@ -532,37 +536,42 @@
 
         .tool-item {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
             margin-bottom: 25px;
             max-width: 100%;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .tool-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .tool-name {
             font-size: 18px;
             color: #333;
             font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .tool-name:hover {
-            color: #f4d03f;
-            transform: translateX(5px);
         }
 
         .skill-bar {
             flex: 1;
             height: 2px;
             background-color: #eee;
-            margin: 0 15px;
+            margin: 0 10px;
             border-radius: 1px;
             overflow: visible;
             position: relative;
             padding: 10px 0;
             display: flex;
             align-items: center;
-            max-width: calc(100% - 120px);
         }
 
         .skill-progress {
@@ -633,16 +642,33 @@
             opacity: 1;
         }
 
-        .add-tool {
-            font-size: 24px;
+        .skill-control {
+            font-size: 20px;
             color: #999;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 5px;
+            user-select: none;
         }
 
-        .add-tool:hover {
+        .skill-control:hover {
             color: #f4d03f;
-            transform: scale(1.2) rotate(90deg);
+            transform: scale(1.2);
+            text-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
+        }
+
+        .language-control {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 5px;
+            user-select: none;
+        }
+
+        .language-control:hover {
+            color: #f4d03f;
+            transform: scale(1.2);
             text-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
         }
 
@@ -672,38 +698,48 @@
             text-align: left;
         }
 
+        .languages-section .dot {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
         .language-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+
+        .language-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            max-width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .language-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .language-name {
             font-size: 18px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .language-name:hover {
-            color: #f4d03f;
-            transform: translateX(5px);
+            color: white;
         }
 
         .language-bar {
             flex: 1;
             height: 2px;
             background-color: rgba(255, 255, 255, 0.3);
-            margin: 0 15px;
+            margin: 0 10px;
             border-radius: 1px;
             overflow: visible;
             position: relative;
             padding: 10px 0;
             display: flex;
             align-items: center;
-            max-width: calc(100% - 120px);
         }
 
         .language-progress {
@@ -1050,6 +1086,18 @@
                 <div class="column-dot"></div>
             </div>
             <div class="section-header">
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
                 <h2 class="section-title">Experience</h2>
             </div>
 
@@ -1087,99 +1135,167 @@
             </div>
             <!-- Tools Section -->
             <div class="tools-section">
-                <h2 class="section-title">Tools</h2>
+                <div class="section-header">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <h2 class="section-title">Tools</h2>
+                </div>
                 
-                <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">Python -</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%">
-                            <div class="skill-knob"></div>
-                        </div>
-                        <div class="skill-tooltip">95%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">Python</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="setSkillValue(this, 0)">-</span>
+                        <div class="skill-bar" onclick="showSkillValue(this)">
+                            <div class="skill-progress" style="width: 95%" data-value="95">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">95%</div>
+                        </div>
+                        <span class="skill-control" onclick="setSkillValue(this, 100)">+</span>
+                    </div>
                 </div>
 
-                <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">TensorFlow -</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%">
-                            <div class="skill-knob"></div>
-                        </div>
-                        <div class="skill-tooltip">90%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">TensorFlow</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="setSkillValue(this, 0)">-</span>
+                        <div class="skill-bar" onclick="showSkillValue(this)">
+                            <div class="skill-progress" style="width: 90%" data-value="90">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">90%</div>
+                        </div>
+                        <span class="skill-control" onclick="setSkillValue(this, 100)">+</span>
+                    </div>
                 </div>
 
-                <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">PyTorch -</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%">
-                            <div class="skill-knob"></div>
-                        </div>
-                        <div class="skill-tooltip">88%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">PyTorch</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="setSkillValue(this, 0)">-</span>
+                        <div class="skill-bar" onclick="showSkillValue(this)">
+                            <div class="skill-progress" style="width: 88%" data-value="88">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">88%</div>
+                        </div>
+                        <span class="skill-control" onclick="setSkillValue(this, 100)">+</span>
+                    </div>
                 </div>
 
-                <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">Docker -</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%">
-                            <div class="skill-knob"></div>
-                        </div>
-                        <div class="skill-tooltip">90%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">Docker</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="setSkillValue(this, 0)">-</span>
+                        <div class="skill-bar" onclick="showSkillValue(this)">
+                            <div class="skill-progress" style="width: 90%" data-value="90">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">90%</div>
+                        </div>
+                        <span class="skill-control" onclick="setSkillValue(this, 100)">+</span>
+                    </div>
                 </div>
 
-                <div class="tool-item" onclick="highlightSkill(this)">
-                    <span class="tool-name">AWS -</span>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 87%">
-                            <div class="skill-knob"></div>
-                        </div>
-                        <div class="skill-tooltip">87%</div>
+                <div class="tool-item">
+                    <div class="tool-header">
+                        <span class="tool-name">AWS</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="tool-controls">
+                        <span class="skill-control" onclick="setSkillValue(this, 0)">-</span>
+                        <div class="skill-bar" onclick="showSkillValue(this)">
+                            <div class="skill-progress" style="width: 87%" data-value="87">
+                                <div class="skill-knob"></div>
+                            </div>
+                            <div class="skill-tooltip">87%</div>
+                        </div>
+                        <span class="skill-control" onclick="setSkillValue(this, 100)">+</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Languages Section -->
             <div class="languages-section">
-                <h2 class="section-title">Languages</h2>
+                <div class="section-header">
+                    <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <h2 class="section-title">Languages</h2>
+                </div>
                 
-                <div class="language-item" onclick="highlightSkill(this)">
-                    <span class="language-name">English -</span>
-                    <div class="language-bar">
-                        <div class="language-progress" style="width: 100%">
-                            <div class="language-knob"></div>
-                        </div>
-                        <div class="language-tooltip">100%</div>
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">English</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="language-controls">
+                        <span class="language-control" onclick="setLanguageValue(this, 0)">-</span>
+                        <div class="language-bar" onclick="showLanguageValue(this)">
+                            <div class="language-progress" style="width: 100%" data-value="100">
+                                <div class="language-knob"></div>
+                            </div>
+                            <div class="language-tooltip">100%</div>
+                        </div>
+                        <span class="language-control" onclick="setLanguageValue(this, 100)">+</span>
+                    </div>
                 </div>
 
-                <div class="language-item" onclick="highlightSkill(this)">
-                    <span class="language-name">Dutch -</span>
-                    <div class="language-bar">
-                        <div class="language-progress" style="width: 75%">
-                            <div class="language-knob"></div>
-                        </div>
-                        <div class="language-tooltip">75%</div>
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">Dutch</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="language-controls">
+                        <span class="language-control" onclick="setLanguageValue(this, 0)">-</span>
+                        <div class="language-bar" onclick="showLanguageValue(this)">
+                            <div class="language-progress" style="width: 75%" data-value="75">
+                                <div class="language-knob"></div>
+                            </div>
+                            <div class="language-tooltip">75%</div>
+                        </div>
+                        <span class="language-control" onclick="setLanguageValue(this, 100)">+</span>
+                    </div>
                 </div>
 
-                <div class="language-item" onclick="highlightSkill(this)">
-                    <span class="language-name">French -</span>
-                    <div class="language-bar">
-                        <div class="language-progress" style="width: 60%">
-                            <div class="language-knob"></div>
-                        </div>
-                        <div class="language-tooltip">60%</div>
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="language-name">French</span>
                     </div>
-                    <span class="add-tool">+</span>
+                    <div class="language-controls">
+                        <span class="language-control" onclick="setLanguageValue(this, 0)">-</span>
+                        <div class="language-bar" onclick="showLanguageValue(this)">
+                            <div class="language-progress" style="width: 60%" data-value="60">
+                                <div class="language-knob"></div>
+                            </div>
+                            <div class="language-tooltip">60%</div>
+                        </div>
+                        <span class="language-control" onclick="setLanguageValue(this, 100)">+</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1226,19 +1342,64 @@
             }
         });
 
-        function highlightSkill(element) {
-            // Remove previous highlights
-            document.querySelectorAll('.skill-highlighted').forEach(el => {
-                el.classList.remove('skill-highlighted');
-            });
+        function setSkillValue(element, value) {
+            const toolControls = element.closest('.tool-controls');
+            const progress = toolControls.querySelector('.skill-progress');
+            const tooltip = toolControls.querySelector('.skill-tooltip');
             
-            // Add highlight to clicked element
-            element.classList.add('skill-highlighted');
+            progress.style.width = value + '%';
+            progress.setAttribute('data-value', value);
+            tooltip.textContent = value + '%';
             
-            // Remove highlight after 2 seconds
+            // Add animation effect
+            progress.style.transition = 'width 0.5s ease';
+            element.style.transform = 'scale(1.3)';
             setTimeout(() => {
-                element.classList.remove('skill-highlighted');
-            }, 2000);
+                element.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function showSkillValue(element) {
+            const progress = element.querySelector('.skill-progress');
+            const tooltip = element.querySelector('.skill-tooltip');
+            const value = progress.getAttribute('data-value');
+            
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateX(-50%) scale(1.1)';
+            
+            setTimeout(() => {
+                tooltip.style.transform = 'translateX(-50%) scale(1)';
+            }, 300);
+        }
+
+        function setLanguageValue(element, value) {
+            const languageControls = element.closest('.language-controls');
+            const progress = languageControls.querySelector('.language-progress');
+            const tooltip = languageControls.querySelector('.language-tooltip');
+            
+            progress.style.width = value + '%';
+            progress.setAttribute('data-value', value);
+            tooltip.textContent = value + '%';
+            
+            // Add animation effect
+            progress.style.transition = 'width 0.5s ease';
+            element.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function showLanguageValue(element) {
+            const progress = element.querySelector('.language-progress');
+            const tooltip = element.querySelector('.language-tooltip');
+            const value = progress.getAttribute('data-value');
+            
+            tooltip.style.opacity = '1';
+            tooltip.style.transform = 'translateX(-50%) scale(1.1)';
+            
+            setTimeout(() => {
+                tooltip.style.transform = 'translateX(-50%) scale(1)';
+            }, 300);
         }
 
         // Simple click effects
