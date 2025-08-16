@@ -5,192 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samson Raymond - AI Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="profile">
-                <img src="assets/IMG_0930.jpeg" alt="Samson Raymond" class="profile-img">
-                <h1>Samson Raymond</h1>
-                <p class="title">AI/ML Engineer</p>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    The Netherlands
-                </div>
-            </div>
+        <!-- Left Side - Profile -->
+        <div class="profile-section">
+            <img src="assets/IMG_0930.jpeg" alt="Samson Raymond" class="profile-img">
+            <h1>Samson Raymond</h1>
+            <p class="title">AI/ML Engineer</p>
+            <p class="location">Netherlands</p>
             
-            <div class="contact">
-                <a href="mailto:samsonraymond63@yahoo.com" class="contact-btn">
+            <div class="contact-buttons">
+                <a href="mailto:samsonraymond63@yahoo.com" class="btn email">
                     <i class="fas fa-envelope"></i>
-                    Email
                 </a>
-                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="contact-btn">
+                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="btn linkedin">
                     <i class="fab fa-linkedin"></i>
-                    LinkedIn
                 </a>
-                <a href="https://github.com/Rayfreshh" class="contact-btn">
+                <a href="https://github.com/Rayfreshh" class="btn github">
                     <i class="fab fa-github"></i>
-                    GitHub
                 </a>
-                <a href="assets/Etiosa_Raymond_CV.pdf" class="contact-btn cv-btn" download>
+                <a href="assets/Etiosa_Raymond_CV.pdf" class="btn cv" download>
                     <i class="fas fa-download"></i>
-                    Download CV
                 </a>
             </div>
-        </header>
+        </div>
 
-        <!-- Main Content -->
-        <main class="main">
-            <!-- About -->
-            <section class="section">
-                <h2>About</h2>
-                <p>AI/ML Engineer with expertise in cloud, data science, and machine learning. I transform concepts into operational AI systems that deliver measurable, impactful value. Currently developing deep learning models for medical devices at Cymo B.V.</p>
-            </section>
-
-            <!-- Experience -->
-            <section class="section">
-                <h2>Experience</h2>
-                <div class="experience-grid">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>AI/ML Engineer</h3>
-                            <span class="company">Cymo B.V.</span>
-                            <span class="date">Aug 2024 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Boosted precision by 20% in endoscopy devices</li>
-                            <li>Reduced false alarms by 10%</li>
-                            <li>Leading generative AI research for Medical Edge devices</li>
-                        </ul>
+        <!-- Right Side - Info Cards -->
+        <div class="info-section">
+            <!-- Experience Card -->
+            <div class="card" id="experience">
+                <div class="card-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Experience</h3>
+                <div class="card-content">
+                    <div class="job">
+                        <strong>AI/ML Engineer</strong> @ Cymo B.V.<br>
+                        <small>20% precision boost • 10% alarm reduction</small>
                     </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>R&D Intern - AI/ML</h3>
-                            <span class="company">Tata Steel</span>
-                            <span class="date">Sep 2024 - Mar 2025</span>
-                        </div>
-                        <ul>
-                            <li>Improved accuracy by 25% using computer vision</li>
-                            <li>Reduced manual verification time by 40%</li>
-                            <li>Deployed predictive system on Azure cloud</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Logistics Technician</h3>
-                            <span class="company">Scania</span>
-                            <span class="date">Jun 2023 - Aug 2024</span>
-                        </div>
-                        <ul>
-                            <li>Reduced stock errors by 15%</li>
-                            <li>Optimized Oracle database systems</li>
-                            <li>Enhanced safety protocols</li>
-                        </ul>
+                    <div class="job">
+                        <strong>R&D Intern</strong> @ Tata Steel<br>
+                        <small>25% accuracy improvement • Azure deployment</small>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Skills -->
-            <section class="section">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming</h3>
-                        <div class="skills">
-                            <span class="skill">Python <strong>95%</strong></span>
-                            <span class="skill">SQL <strong>85%</strong></span>
-                            <span class="skill">Bash <strong>80%</strong></span>
-                        </div>
+            <!-- Skills Card -->
+            <div class="card" id="skills">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Skills</h3>
+                <div class="card-content">
+                    <div class="skill-row">
+                        <span>Python</span>
+                        <span class="percentage">95%</span>
                     </div>
-
-                    <div class="skill-category">
-                        <h3>AI/ML</h3>
-                        <div class="skills">
-                            <span class="skill">Computer Vision <strong>92%</strong></span>
-                            <span class="skill">TensorFlow <strong>90%</strong></span>
-                            <span class="skill">PyTorch <strong>88%</strong></span>
-                            <span class="skill">NLP & LLMs <strong>85%</strong></span>
-                        </div>
+                    <div class="skill-row">
+                        <span>Computer Vision</span>
+                        <span class="percentage">92%</span>
                     </div>
-
-                    <div class="skill-category">
-                        <h3>Cloud & DevOps</h3>
-                        <div class="skills">
-                            <span class="skill">Docker <strong>90%</strong></span>
-                            <span class="skill">AWS <strong>87%</strong></span>
-                            <span class="skill">Azure <strong>82%</strong></span>
-                            <span class="skill">Git/CI-CD <strong>85%</strong></span>
-                        </div>
+                    <div class="skill-row">
+                        <span>AWS/Azure</span>
+                        <span class="percentage">85%</span>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Education & Projects -->
-            <section class="section">
-                <div class="two-column">
-                    <div>
-                        <h2>Education</h2>
-                        <div class="education">
-                            <div class="edu-item">
-                                <h3>Masters in Smart Systems Engineering</h3>
-                                <p>Hanze University of Applied Sciences</p>
-                                <span>2023-2025</span>
-                            </div>
-                            <div class="edu-item">
-                                <h3>Bachelor Oil & Gas Engineering</h3>
-                                <p>Ivano-Frankivsk National Technical University</p>
-                                <span>2018-2022</span>
-                            </div>
-                        </div>
+            <!-- Education Card -->
+            <div class="card" id="education">
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Education</h3>
+                <div class="card-content">
+                    <div class="education">
+                        <strong>Master's Smart Systems</strong><br>
+                        <small>Hanze University • 2023-2025</small>
                     </div>
-
-                    <div>
-                        <h2>Projects</h2>
-                        <div class="projects">
-                            <div class="project">
-                                <h3>Computer Vision Pipeline</h3>
-                                <p>99.5% accuracy defect detection using YOLO, OpenCV, Azure</p>
-                            </div>
-                            <div class="project">
-                                <h3>Cloud Computing Solution</h3>
-                                <p>10% cost reduction with AWS ECS, Docker, CloudWatch</p>
-                            </div>
-                            <div class="project">
-                                <h3>RAG Chatbot System</h3>
-                                <p>30% better retrieval with LangChain, Vector DB, LLMs</p>
-                            </div>
-                        </div>
+                    <div class="education">
+                        <strong>Bachelor Oil & Gas</strong><br>
+                        <small>Ukraine • 2018-2022</small>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Stats -->
-            <section class="section">
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-number">2+</span>
-                        <span class="stat-label">Years Experience</span>
+            <!-- Achievement Card -->
+            <div class="card" id="achievements">
+                <div class="card-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Key Results</h3>
+                <div class="card-content">
+                    <div class="achievement">
+                        <strong>99.5%</strong> accuracy in CV pipeline
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">20%</span>
-                        <span class="stat-label">Precision Boost</span>
+                    <div class="achievement">
+                        <strong>40%</strong> time reduction
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">25%</span>
-                        <span class="stat-label">Accuracy Improvement</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">40%</span>
-                        <span class="stat-label">Time Reduction</span>
+                    <div class="achievement">
+                        <strong>2+</strong> years experience
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 </body>
 </html>
