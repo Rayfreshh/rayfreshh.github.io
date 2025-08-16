@@ -70,7 +70,7 @@
         }
 
         .main-wrapper {
-            padding: 20px;
+            padding: 20px 20px 40px 20px;
             background-color: #e8e8e8;
             min-height: 100vh;
             display: flex;
@@ -123,8 +123,6 @@
             position: absolute;
             top: 40px;
             right: 5px;
-            display: flex;
-            gap: 3px;
             font-size: 8px;
             color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
@@ -471,6 +469,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 25px;
+            max-width: 100%;
         }
 
         .tool-name {
@@ -488,6 +487,9 @@
             overflow: visible;
             position: relative;
             padding: 10px 0;
+            display: flex;
+            align-items: center;
+            max-width: calc(100% - 120px);
         }
 
         .skill-progress {
@@ -576,6 +578,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
+            max-width: 100%;
         }
 
         .language-name {
@@ -592,6 +595,9 @@
             overflow: visible;
             position: relative;
             padding: 10px 0;
+            display: flex;
+            align-items: center;
+            max-width: calc(100% - 120px);
         }
 
         .language-progress {
@@ -821,8 +827,7 @@
                 <p class="job-title-main">Smart Systems Engineer</p>
                 <div class="arrow" onclick="toggleMenu()" title="Menu">↗</div>
                 <div class="arrow-labels">
-                    <span>menu</span>
-                    <span>diag</span>
+                    <span>MENU</span>
                 </div>
             </div>
             
@@ -904,12 +909,14 @@
             <div class="education-item">
                 <h3 class="degree-title">Master Smart Systems Engineering</h3>
                 <p class="institution">HANZE UNIVERSITY OF APPLIED SCIENCES</p>
+                <p class="institution">The Netherlands</p>
                 <p class="year">2023-2025</p>
             </div>
 
             <div class="education-item">
                 <h3 class="degree-title">Bachelor Oil & Gas Engineering</h3>
                 <p class="institution">IVANO-FRANKIVSK NATIONAL TECHNICAL UNIVERSITY</p>
+                <p class="institution">Ukraine</p>
                 <p class="year">2018-2022</p>
             </div>
         </div>
