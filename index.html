@@ -5,113 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samson Raymond - AI Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <!-- Left Side - Profile -->
-        <div class="profile-section">
-            <img src="assets/IMG_0930.jpeg" alt="Samson Raymond" class="profile-img">
-            <h1>Samson Raymond</h1>
-            <p class="title">AI/ML Engineer</p>
-            <p class="location">Netherlands</p>
-            
-            <div class="contact-buttons">
-                <a href="mailto:samsonraymond63@yahoo.com" class="btn email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/etiosa-raymond-851233105/" class="btn linkedin">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/Rayfreshh" class="btn github">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="assets/Etiosa_Raymond_CV.pdf" class="btn cv" download>
-                    <i class="fas fa-download"></i>
-                </a>
+        <!-- Left Side - Bio -->
+        <div class="left-section">
+            <div class="bio">
+                <h1>Specialized in AI/ML and Computer Vision.</h1>
+                <p>Passionate about developing precision-driven technologies and innovative research methods.</p>
+                <p>Available for collaborations and impactful projects.</p>
             </div>
         </div>
 
-        <!-- Right Side - Info Cards -->
-        <div class="info-section">
-            <!-- Experience Card -->
-            <div class="card" id="experience">
-                <div class="card-icon">
-                    <i class="fas fa-briefcase"></i>
+        <!-- Right Side - Details -->
+        <div class="right-section">
+            <!-- Languages -->
+            <div class="section">
+                <div class="section-header" onclick="toggle('languages')">
+                    <span>Languages</span>
+                    <span class="toggle" id="languages-toggle">+</span>
                 </div>
-                <h3>Experience</h3>
-                <div class="card-content">
-                    <div class="job">
-                        <strong>AI/ML Engineer</strong> @ Cymo B.V.<br>
-                        <small>20% precision boost • 10% alarm reduction</small>
+                <div class="section-content" id="languages">
+                    <span class="item">English</span>
+                    <span class="item">Dutch</span>
+                    <span class="item">French</span>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="section">
+                <div class="section-header" onclick="toggle('tools')">
+                    <span>Tools</span>
+                    <span class="toggle" id="tools-toggle">+</span>
+                </div>
+                <div class="section-content" id="tools">
+                    <span class="item">Python</span>
+                    <span class="item">TensorFlow</span>
+                    <span class="item">PyTorch</span>
+                    <span class="item">Docker</span>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="section">
+                <div class="section-header" onclick="toggle('experience')">
+                    <span>Experience</span>
+                    <span class="toggle" id="experience-toggle">+</span>
+                </div>
+                <div class="section-content" id="experience">
+                    <div class="timeline-item">
+                        <div class="year">2024-ongoing</div>
+                        <div class="details">
+                            <div class="company">CYMO B.V.</div>
+                            <div class="role">AI/ML Engineer</div>
+                        </div>
                     </div>
-                    <div class="job">
-                        <strong>R&D Intern</strong> @ Tata Steel<br>
-                        <small>25% accuracy improvement • Azure deployment</small>
+                    <div class="timeline-item">
+                        <div class="year">2024</div>
+                        <div class="details">
+                            <div class="company">TATA STEEL</div>
+                            <div class="role">R&D Intern - AI/ML</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2023-2024</div>
+                        <div class="details">
+                            <div class="company">SCANIA</div>
+                            <div class="role">Logistics Technician</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Skills Card -->
-            <div class="card" id="skills">
-                <div class="card-icon">
-                    <i class="fas fa-code"></i>
+            <!-- Education -->
+            <div class="section">
+                <div class="section-header" onclick="toggle('education')">
+                    <span>Education</span>
+                    <span class="toggle" id="education-toggle">+</span>
                 </div>
-                <h3>Skills</h3>
-                <div class="card-content">
-                    <div class="skill-row">
-                        <span>Python</span>
-                        <span class="percentage">95%</span>
+                <div class="section-content" id="education">
+                    <div class="timeline-item">
+                        <div class="year">2023-2025</div>
+                        <div class="details">
+                            <div class="company">HANZE UNIVERSITY</div>
+                            <div class="role">Master in Smart Systems Engineering</div>
+                        </div>
                     </div>
-                    <div class="skill-row">
-                        <span>Computer Vision</span>
-                        <span class="percentage">92%</span>
-                    </div>
-                    <div class="skill-row">
-                        <span>AWS/Azure</span>
-                        <span class="percentage">85%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education Card -->
-            <div class="card" id="education">
-                <div class="card-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Education</h3>
-                <div class="card-content">
-                    <div class="education">
-                        <strong>Master's Smart Systems</strong><br>
-                        <small>Hanze University • 2023-2025</small>
-                    </div>
-                    <div class="education">
-                        <strong>Bachelor Oil & Gas</strong><br>
-                        <small>Ukraine • 2018-2022</small>
+                    <div class="timeline-item">
+                        <div class="year">2018-2022</div>
+                        <div class="details">
+                            <div class="company">UKRAINE UNIVERSITY</div>
+                            <div class="role">Bachelor in Oil & Gas Engineering</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Achievement Card -->
-            <div class="card" id="achievements">
-                <div class="card-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h3>Key Results</h3>
-                <div class="card-content">
-                    <div class="achievement">
-                        <strong>99.5%</strong> accuracy in CV pipeline
-                    </div>
-                    <div class="achievement">
-                        <strong>40%</strong> time reduction
-                    </div>
-                    <div class="achievement">
-                        <strong>2+</strong> years experience
-                    </div>
-                </div>
+            <!-- Contact -->
+            <div class="contact">
+                <a href="mailto:samsonraymond63@yahoo.com">E</a>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggle(sectionId) {
+            const content = document.getElementById(sectionId);
+            const toggle = document.getElementById(sectionId + '-toggle');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                toggle.textContent = '-';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '+';
+            }
+        }
+
+        // Initialize all sections as collapsed
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = ['languages', 'tools', 'experience', 'education'];
+            sections.forEach(section => {
+                document.getElementById(section).style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
