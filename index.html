@@ -84,6 +84,11 @@
             background: white;
         }
 
+        .tools-languages-column {
+            display: flex;
+            flex-direction: column;
+        }
+
         .fullscreen-btn {
             position: fixed;
             top: 20px;
@@ -211,6 +216,8 @@
             animation: slideInUp 0.8s ease-out 0.2s both;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .section-header {
@@ -285,6 +292,8 @@
             animation: slideInUp 0.8s ease-out 0.4s both;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .experience-section .section-title {
@@ -336,10 +345,11 @@
         .tools-section {
             background-color: white;
             padding: 20px 15px;
-            overflow-y: auto;
-            animation: slideInRight 0.8s ease-out 0.6s both;
+            flex: 1;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .tools-section .section-title {
@@ -410,10 +420,11 @@
             background-color: #2ecc71;
             padding: 15px;
             color: white;
-            overflow-y: auto;
-            animation: slideInRight 0.8s ease-out 0.8s both;
+            flex: 1;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .languages-section .section-title {
@@ -627,93 +638,96 @@
             </div>
         </div>
 
-        <!-- Tools Section -->
-        <div class="tools-section">
-            <h2 class="section-title">Tools</h2>
-            
-            <div class="tool-item">
-                <span class="tool-name">Python</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 95%">
-                        <div class="skill-tooltip">95%</div>
+        <!-- Tools & Languages Combined Column -->
+        <div class="tools-languages-column">
+            <!-- Tools Section -->
+            <div class="tools-section">
+                <h2 class="section-title">Tools</h2>
+                
+                <div class="tool-item" onclick="highlightSkill(this)">
+                    <span class="tool-name">Python</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%">
+                            <div class="skill-tooltip">95%</div>
+                        </div>
                     </div>
+                    <span class="add-tool">+</span>
                 </div>
-                <span class="add-tool">+</span>
+
+                <div class="tool-item" onclick="highlightSkill(this)">
+                    <span class="tool-name">TensorFlow</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%">
+                            <div class="skill-tooltip">90%</div>
+                        </div>
+                    </div>
+                    <span class="add-tool">+</span>
+                </div>
+
+                <div class="tool-item" onclick="highlightSkill(this)">
+                    <span class="tool-name">PyTorch</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%">
+                            <div class="skill-tooltip">88%</div>
+                        </div>
+                    </div>
+                    <span class="add-tool">+</span>
+                </div>
+
+                <div class="tool-item" onclick="highlightSkill(this)">
+                    <span class="tool-name">Docker</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%">
+                            <div class="skill-tooltip">90%</div>
+                        </div>
+                    </div>
+                    <span class="add-tool">+</span>
+                </div>
+
+                <div class="tool-item" onclick="highlightSkill(this)">
+                    <span class="tool-name">AWS</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 87%">
+                            <div class="skill-tooltip">87%</div>
+                        </div>
+                    </div>
+                    <span class="add-tool">+</span>
+                </div>
             </div>
 
-            <div class="tool-item">
-                <span class="tool-name">TensorFlow</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 90%">
-                        <div class="skill-tooltip">90%</div>
+            <!-- Languages Section -->
+            <div class="languages-section">
+                <h2 class="section-title">Languages</h2>
+                
+                <div class="language-item" onclick="highlightSkill(this)">
+                    <span class="language-name">English</span>
+                    <div class="language-bar">
+                        <div class="language-progress" style="width: 100%">
+                            <div class="language-tooltip">Native</div>
+                        </div>
                     </div>
+                    <span class="add-tool">+</span>
                 </div>
-                <span class="add-tool">+</span>
-            </div>
 
-            <div class="tool-item">
-                <span class="tool-name">PyTorch</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 88%">
-                        <div class="skill-tooltip">88%</div>
+                <div class="language-item" onclick="highlightSkill(this)">
+                    <span class="language-name">Dutch</span>
+                    <div class="language-bar">
+                        <div class="language-progress" style="width: 75%">
+                            <div class="language-tooltip">Intermediate</div>
+                        </div>
                     </div>
+                    <span class="add-tool">+</span>
                 </div>
-                <span class="add-tool">+</span>
-            </div>
 
-            <div class="tool-item">
-                <span class="tool-name">Docker</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 90%">
-                        <div class="skill-tooltip">90%</div>
+                <div class="language-item" onclick="highlightSkill(this)">
+                    <span class="language-name">French</span>
+                    <div class="language-bar">
+                        <div class="language-progress" style="width: 60%">
+                            <div class="language-tooltip">Conversational</div>
+                        </div>
                     </div>
+                    <span class="add-tool">+</span>
                 </div>
-                <span class="add-tool">+</span>
-            </div>
-
-            <div class="tool-item">
-                <span class="tool-name">AWS</span>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 87%">
-                        <div class="skill-tooltip">87%</div>
-                    </div>
-                </div>
-                <span class="add-tool">+</span>
-            </div>
-        </div>
-
-        <!-- Languages Section -->
-        <div class="languages-section">
-            <h2 class="section-title">Languages</h2>
-            
-            <div class="language-item">
-                <span class="language-name">English</span>
-                <div class="language-bar">
-                    <div class="language-progress" style="width: 100%">
-                        <div class="language-tooltip">Native</div>
-                    </div>
-                </div>
-                <span class="add-tool">+</span>
-            </div>
-
-            <div class="language-item">
-                <span class="language-name">Dutch</span>
-                <div class="language-bar">
-                    <div class="language-progress" style="width: 75%">
-                        <div class="language-tooltip">Intermediate</div>
-                    </div>
-                </div>
-                <span class="add-tool">+</span>
-            </div>
-
-            <div class="language-item">
-                <span class="language-name">French</span>
-                <div class="language-bar">
-                    <div class="language-progress" style="width: 60%">
-                        <div class="language-tooltip">Conversational</div>
-                    </div>
-                </div>
-                <span class="add-tool">+</span>
             </div>
         </div>
 
@@ -740,6 +754,48 @@
                 document.exitFullscreen();
             }
         }
+
+        function highlightSkill(element) {
+            // Remove previous highlights
+            document.querySelectorAll('.skill-highlighted').forEach(el => {
+                el.classList.remove('skill-highlighted');
+            });
+            
+            // Add highlight to clicked element
+            element.classList.add('skill-highlighted');
+            
+            // Remove highlight after 2 seconds
+            setTimeout(() => {
+                element.classList.remove('skill-highlighted');
+            }, 2000);
+        }
+
+        // Simple click effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.experience-item, .education-item, .add-btn');
+            
+            items.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
     </script>
+
+    <style>
+        .skill-highlighted {
+            background-color: #f4d03f !important;
+            transform: scale(1.05) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .experience-item, .education-item {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+    </style>
 </body>
 </html>
