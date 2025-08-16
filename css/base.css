@@ -1,0 +1,161 @@
+/* Base Styles - Reset, Variables, Typography */
+
+/* CSS Variables for consistent theming */
+:root {
+    --primary-color: #f4d03f;
+    --secondary-color: #1a1a1a;
+    --text-color: #333;
+    --text-light: #666;
+    --text-muted: #999;
+    --background-light: #f8f9fa;
+    --background-gray: #e8e8e8;
+    --white: #ffffff;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-size-sm: 10px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 22px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 36px;
+    --font-size-4xl: 40px;
+    
+    /* Border radius */
+    --border-radius-sm: 3px;
+    --border-radius: 6px;
+    --border-radius-lg: 8px;
+    --border-radius-xl: 12px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+    --shadow-xl: 0 20px 40px rgba(0,0,0,0.3);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index scale */
+    --z-tooltip: 100;
+    --z-overlay: 999;
+    --z-modal: 1000;
+    --z-modal-backdrop: 999;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Typography */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-gray);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-xl); }
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all var(--transition);
+}
+
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+
+/* Selection */
+::selection {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Focus outline */
+*:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Utility classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
