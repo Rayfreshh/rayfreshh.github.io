@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Etiosa Raymond - Portfolio</title>
     <style>
+        :root {
+            --base-padding: clamp(8px, 1.5vw, 20px);
+            --base-gap: clamp(4px, 1vw, 12px);
+            --section-padding: clamp(12px, 1.5vw, 24px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -80,11 +86,9 @@
         }
 
         .main-wrapper {
-            padding: 20px;
+            padding: 1.5vw;
             background-color: #e8e8e8;
             min-height: 100vh;
-            max-height: 100vh;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -93,10 +97,10 @@
 
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: 1fr;
-            max-width: 1400px;
-            height: calc(100vh - 40px);
+            max-width: min(1400px, 95vw);
+            height: min(calc(100vh - 3vw), 800px);
             margin: 0 auto;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -252,7 +256,7 @@
         }
 
         .name {
-            font-size: 40px;
+            font-size: clamp(24px, 3vw, 40px);
             font-weight: 300;
             line-height: 1.1;
             margin-bottom: 15px;
@@ -404,7 +408,7 @@
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: clamp(20px, 2.5vw, 36px);
             font-weight: 300;
             color: #333;
             text-align: left;
@@ -1118,13 +1122,14 @@
             font-size: 24px;
         }
 
-        /* Mobile-First Responsive Design */
+        /* Flexible Responsive Design */
         @media (max-width: 1200px) {
             .container {
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: auto auto auto;
                 height: auto;
-                min-height: calc(100vh - 40px);
+                min-height: calc(100vh - 3vw);
+                gap: 0.5vw;
             }
             
             .profile-section {
@@ -1150,6 +1155,26 @@
                 height: auto;
             }
         }
+        
+        /* Tablet responsive design */
+        @media (max-width: 900px) and (min-width: 769px) {
+            .container {
+                max-width: 95vw;
+                height: min(calc(100vh - 2vw), 700px);
+            }
+            
+            .main-wrapper {
+                padding: var(--base-padding);
+            }
+            
+            .profile-section,
+            .education-section,
+            .experience-section,
+            .tools-section,
+            .languages-section {
+                padding: var(--section-padding);
+            }
+        }
 
         @media (max-width: 768px) {
             body {
@@ -1158,7 +1183,7 @@
             }
             
             .main-wrapper {
-                padding: 8px;
+                padding: var(--base-padding);
                 min-height: 100vh;
                 max-height: none;
                 overflow: visible;
@@ -1169,7 +1194,7 @@
                 flex-direction: column;
                 height: auto;
                 min-height: auto;
-                gap: 8px;
+                gap: var(--base-gap);
                 width: 100%;
                 max-width: 100%;
             }
@@ -1188,13 +1213,13 @@
             }
             
             .profile-section {
-                padding: 12px;
+                padding: var(--section-padding);
                 min-height: auto;
             }
             
             .education-section,
             .experience-section {
-                padding: 12px;
+                padding: var(--section-padding);
                 overflow-y: visible;
                 height: auto;
             }
