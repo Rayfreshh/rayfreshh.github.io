@@ -1,0 +1,185 @@
+/* CSS Custom Properties - Design System Variables */
+
+:root {
+  /* AI/ML-Inspired Color Palette */
+  --primary-color: #00e5ff; /* Electric Cyan - AI energy */
+  --primary-hover: #00b8d4; /* Deeper cyan */
+  --primary-dark: #006064; /* Dark cyan */
+  
+  --secondary-color: #1a237e; /* Neural Network Blue */
+  --secondary-hover: #303f9f; /* Lighter neural blue */
+  --secondary-light: #3f51b5; /* Indigo accent */
+  
+  --accent-color: #7c4dff; /* Digital Purple */
+  --accent-hover: #651fff; /* Deep purple */
+  --accent-light: #b388ff; /* Light purple */
+  
+  --success-color: #00c853; /* AI Success Green */
+  --warning-color: #ff6d00; /* Neural Orange */
+  --error-color: #d50000; /* Critical Red */
+  
+  /* Neural Network Gradients */
+  --gradient-primary: linear-gradient(135deg, #00e5ff 0%, #1a237e 100%);
+  --gradient-secondary: linear-gradient(135deg, #7c4dff 0%, #3f51b5 100%);
+  --gradient-accent: linear-gradient(135deg, #00c853 0%, #00e5ff 50%, #7c4dff 100%);
+  
+  /* Background Colors */
+  --dark-bg: #0a0e27; /* Deep space blue */
+  --medium-bg: #1a237e; /* Neural network blue */
+  --light-bg: #f3f7ff; /* Soft tech white */
+  --overlay-bg: #e1f5fe; /* Light cyan tint */
+  --white: #ffffff;
+  
+  /* Surface Colors */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f8faff;
+  --surface-dark: #121858;
+  --surface-elevated: rgba(255, 255, 255, 0.95);
+  
+  /* Text Colors */
+  --text-primary: #1a237e;
+  --text-secondary: #455a64;
+  --text-tertiary: #78909c;
+  --text-inverse: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-accent: #00e5ff;
+  
+  /* Typography - Enhanced Font System */
+  --font-family-primary: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-family-secondary: "SF Pro Text", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-family-mono: "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
+  --font-family-display: "SF Pro Display", "Inter", system-ui, sans-serif;
+  --font-size-xs: 8px;
+  --font-size-sm: 11px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 40px;
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 15px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 30px;
+  --space-4xl: 40px;
+  
+  /* Responsive spacing */
+  --base-padding: clamp(8px, 1.5vw, 20px);
+  --base-gap: clamp(4px, 1vw, 12px);
+  --section-padding: clamp(12px, 1.5vw, 24px);
+  
+  /* Layout */
+  --container-max-width: 1400px;
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --shadow-primary: 0 0 15px rgba(244, 208, 63, 0.6);
+  --shadow-accent: 0 4px 8px rgba(244, 208, 63, 0.4);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Z-indexes */
+  --z-base: 1;
+  --z-overlay: 999;
+  --z-modal: 1000;
+  --z-tooltip: 1000;
+  --z-dropdown: 999;
+  
+  /* Interactive elements */
+  --skill-bar-height: 2px;
+  --skill-bar-height-hover: 3px;
+  --skill-knob-size: 12px;
+  --control-size: 22px;
+  --social-link-size: 36px;
+  --touch-target-size: 44px;
+  
+  /* Animations */
+  --animation-duration-fast: 0.15s;
+  --animation-duration-normal: 0.3s;
+  --animation-duration-slow: 0.8s;
+  --animation-easing: ease-out;
+  
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 900px;
+  --breakpoint-desktop: 1200px;
+  --breakpoint-large: 1400px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-bg: #2a2a2a;
+    --overlay-bg: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #999999;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000000;
+    --text-primary: #000000;
+    --text-secondary: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-normal: 0s;
+    --transition-slow: 0s;
+    --transition-bounce: 0s;
+    --animation-duration-fast: 0.01ms;
+    --animation-duration-normal: 0.01ms;
+    --animation-duration-slow: 0.01ms;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  :root {
+    --social-link-size: 42px;
+    --control-size: 28px;
+    --section-padding: 10px;
+    --base-padding: 5px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  :root {
+    --control-size: var(--touch-target-size);
+    --social-link-size: var(--touch-target-size);
+  }
+}

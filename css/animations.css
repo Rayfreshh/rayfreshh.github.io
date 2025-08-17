@@ -1,45 +1,279 @@
 /* Animation Styles - Keyframes, Transitions, Effects */
 
-/* Loading Animations */
+/* AI/ML Inspired Animations */
+
+/* Entry Animations */
 @keyframes slideInLeft {
     from {
-        transform: translateX(-100%);
+        transform: translate3d(-100%, 0, 0);
         opacity: 0;
     }
     to {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
         opacity: 1;
     }
 }
 
 @keyframes slideInRight {
     from {
-        transform: translateX(100%);
+        transform: translate3d(100%, 0, 0);
         opacity: 0;
     }
     to {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
         opacity: 1;
     }
 }
 
 @keyframes slideInUp {
     from {
-        transform: translateY(50px);
+        transform: translate3d(0, 50px, 0);
         opacity: 0;
     }
     to {
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
         opacity: 1;
     }
 }
 
 @keyframes fadeInScale {
     from {
-        transform: scale(0.8);
+        transform: scale3d(0.8, 0.8, 1);
         opacity: 0;
     }
     to {
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+    }
+}
+
+/* Neural Network Inspired Animations */
+@keyframes neuralPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(0, 229, 255, 0);
+    }
+}
+
+@keyframes dataFlow {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+        filter: hue-rotate(90deg);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+        filter: hue-rotate(180deg);
+    }
+    60% {
+        transform: translate(2px, 2px);
+        filter: hue-rotate(270deg);
+    }
+    80% {
+        transform: translate(2px, -2px);
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes hologram {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    }
+}
+
+/* Skill Animation Enhancements */
+@keyframes skillProgress {
+    from {
+        width: 0%;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+    to {
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    }
+}
+
+@keyframes skillGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 30px rgba(26, 35, 126, 0.5);
+    }
+}
+
+/* Modern Animation Classes */
+.animate-in {
+    animation-duration: var(--animation-duration-slow);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: both;
+}
+
+.animate-slide-left {
+    animation-name: slideInLeft;
+}
+
+.animate-slide-right {
+    animation-name: slideInRight;
+}
+
+.animate-slide-up {
+    animation-name: slideInUp;
+}
+
+.animate-slide-up-delay {
+    animation-name: slideInUp;
+    animation-delay: 0.2s;
+}
+
+.animate-fade-in {
+    animation-name: fadeInScale;
+}
+
+/* Interactive Hover Effects */
+.neural-hover:hover {
+    animation: neuralPulse 1s ease-in-out infinite;
+}
+
+.glitch-effect:hover {
+    animation: glitch 0.3s linear infinite;
+}
+
+.hologram-effect {
+    animation: hologram 2s ease-in-out infinite;
+}
+
+/* Skill Enhancement Classes */
+.skill-completed {
+    animation: skillGlow 2s ease-in-out 3;
+}
+
+.has-glow-effect {
+    transition: box-shadow var(--transition-normal);
+}
+
+.neural-glow-active {
+    animation: hologram 3s ease-in-out 2;
+}
+
+/* Particle System */
+.neural-particles {
+    overflow: hidden;
+}
+
+.neural-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-color), transparent);
+    animation: dataFlow 2s ease-out forwards;
+}
+
+/* Performance Optimizations */
+.animate-in,
+.neural-hover,
+.glitch-effect,
+.hologram-effect,
+.skill-completed {
+    will-change: transform, opacity;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .animate-in,
+    .neural-hover,
+    .glitch-effect,
+    .hologram-effect,
+    .skill-completed,
+    .has-glow-effect,
+    .neural-glow-active {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .neural-particle {
+        display: none;
+    }
+}
+
+/* High Performance Transforms */
+.gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* AI/ML Themed Gradient Animations */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-animated {
+    background: var(--gradient-primary);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Loading States */
+.loading-pulse {
+    animation: neuralPulse 1.5s ease-in-out infinite;
+}
+
+.loading-dots {
+    display: inline-flex;
+    gap: 4px;
+}
+
+.loading-dots::after {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    animation: loadingDot 1.4s infinite ease-in-out both;
+}
+
+@keyframes loadingDot {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
         transform: scale(1);
         opacity: 1;
     }

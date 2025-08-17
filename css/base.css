@@ -7,13 +7,17 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: var(--font-family-primary);
+    background-color: var(--light-bg);
     overflow-x: auto;
     overflow-y: auto;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    color: var(--text-primary);
+    line-height: var(--line-height-normal);
 }
 
 @media (min-width: 769px) {

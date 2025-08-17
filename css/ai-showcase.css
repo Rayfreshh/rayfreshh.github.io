@@ -1,0 +1,596 @@
+/* AI/ML Showcase Styles - Interactive AI demonstrations */
+
+/* Neural Network Background */
+.neural-network-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.neural-network {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.neural-layer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+    position: relative;
+}
+
+.neural-node {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+}
+
+.node-core {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    transition: all var(--transition-normal);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.node-activation {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3), transparent);
+    opacity: 0;
+    transition: all var(--transition-fast);
+}
+
+.neural-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.neural-connection {
+    position: absolute;
+    overflow: hidden;
+}
+
+.connection-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.5;
+}
+
+.signal-pulse {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 8px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    opacity: 0;
+    transition: all 0.8s ease-out;
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+/* Data Stream Effects */
+.data-stream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.data-bit {
+    position: absolute;
+    color: var(--primary-color);
+    font-family: var(--font-family-mono);
+    font-size: 12px;
+    opacity: 0.7;
+    animation: dataBitFlow 3s linear infinite;
+}
+
+@keyframes dataBitFlow {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(calc(100vh + 20px));
+        opacity: 0;
+    }
+}
+
+/* Enhanced Skill Bars */
+.skill-confidence {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 10px;
+    color: var(--primary-color);
+    background: rgba(26, 35, 126, 0.9);
+    padding: 2px 6px;
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+    pointer-events: none;
+    font-weight: 500;
+}
+
+.skill-scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    animation: skillScan 2s ease-in-out;
+}
+
+@keyframes skillScan {
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes skillAnalysis {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Code Simulation */
+.code-simulation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 39, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: var(--border-radius);
+}
+
+.code-container {
+    background: var(--dark-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+    min-width: 300px;
+}
+
+.code-line {
+    font-family: var(--font-family-mono);
+    color: var(--primary-color);
+    font-size: 12px;
+    margin-bottom: 5px;
+    opacity: 0;
+    animation: codeLineAppear 0.5s ease-out forwards;
+}
+
+@keyframes codeLineAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* AI Terminal */
+.ai-terminal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90vw;
+    background: var(--dark-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+    z-index: 1000;
+    animation: terminalAppear 0.5s ease-out;
+}
+
+@keyframes terminalAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: var(--secondary-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.terminal-title {
+    color: var(--text-inverse);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.terminal-close {
+    color: var(--text-inverse);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 5px;
+    transition: color var(--transition-fast);
+}
+
+.terminal-close:hover {
+    color: var(--primary-color);
+}
+
+.terminal-content {
+    padding: 15px;
+    font-family: var(--font-family-mono);
+    color: var(--primary-color);
+    background: var(--dark-bg);
+}
+
+.terminal-line {
+    margin-bottom: 8px;
+    font-size: 13px;
+    opacity: 0;
+    animation: terminalTyping 0.8s ease-out forwards;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    background: var(--primary-color);
+    width: 8px;
+    height: 15px;
+    animation: cursorBlink 1s infinite;
+}
+
+@keyframes terminalTyping {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cursorBlink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Hologram Effects */
+.hologram-active {
+    position: relative;
+    animation: hologramShimmer 2s ease-in-out;
+}
+
+@keyframes hologramShimmer {
+    0%, 100% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    25% {
+        filter: hue-rotate(90deg) brightness(1.2);
+    }
+    50% {
+        filter: hue-rotate(180deg) brightness(0.8);
+    }
+    75% {
+        filter: hue-rotate(270deg) brightness(1.1);
+    }
+}
+
+.hologram-scan-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.scan-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    animation: scanLineMove 2s ease-in-out;
+}
+
+@keyframes scanLineMove {
+    0% {
+        top: -2px;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* Project Visualization */
+.project-visualization {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90vw;
+    background: var(--surface-primary);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
+    animation: projectVisualizationAppear 0.5s ease-out;
+}
+
+@keyframes projectVisualizationAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.visualization-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.visualization-header h3 {
+    color: var(--text-inverse);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-inverse);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: transform var(--transition-fast);
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+.visualization-content {
+    padding: 20px;
+}
+
+.project-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.metric-card {
+    background: var(--gradient-secondary);
+    color: var(--text-inverse);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-normal);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-badge {
+    background: var(--surface-secondary);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--primary-color);
+}
+
+.ai-visualization {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.processing-indicator {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: pulseRing 2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+.ai-core {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-inverse);
+    font-weight: 700;
+    font-size: 14px;
+    animation: aiCoreRotate 3s linear infinite;
+}
+
+@keyframes aiCoreRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ai-terminal,
+    .project-visualization {
+        width: 95vw;
+        max-width: none;
+    }
+    
+    .neural-network-background {
+        opacity: 0.05;
+    }
+    
+    .code-container {
+        min-width: auto;
+        padding: 15px;
+    }
+    
+    .code-line {
+        font-size: 11px;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .terminal-content {
+        padding: 10px;
+    }
+    
+    .terminal-line {
+        font-size: 12px;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .neural-network-background {
+        opacity: 0;
+    }
+    
+    .data-stream {
+        display: none;
+    }
+    
+    .hologram-active {
+        animation: none;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .neural-node,
+    .signal-pulse,
+    .data-bit,
+    .skill-scan-line,
+    .code-line,
+    .terminal-line,
+    .scan-line,
+    .pulse-ring,
+    .ai-core {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+    
+    .hologram-active {
+        animation: none;
+    }
+}
